@@ -1,0 +1,155 @@
+
+<!doctype html >
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang="zh-CN"> <!--<![endif]-->
+<!--header引用-->
+{template "content","header"}
+<body ng-app="dashBoard" class="body-init homepage" ng-controller="UserCtrl" ng-class="[bodyClass, activeClass]" ng-cloak>
+<script type="text/javascript">
+	$(function () {
+		new slided("#main-slide","cur",350,260,1);//焦点图
+			// Slideshow 
+	$("#slider").responsiveSlides({
+		auto: true,
+		pager: false,
+		nav: true,
+		speed: 500,
+		timeout:4000,
+		pager: true, 
+		pauseControls: true,
+		namespace: "callbacks"
+	});
+</script>
+<!--首页图片滚动-->
+<!--<script type="text/javascript">
+$(function () {
+	// Slideshow 
+	$("#slider").responsiveSlides({
+		auto: true,
+		pager: false,
+		nav: true,
+		speed: 500,
+		timeout:4000,
+		pager: true, 
+		pauseControls: true,
+		namespace: "callbacks"
+	});
+});
+</script>-->
+
+<!--[if lt IE 9]>
+<div class="section dashboard-banner for-ie-suckers" style="margin: 0;">
+  <div class="container">
+    <div class="row">
+      <b>361 安全卫士提醒您：</b>您的 IE 浏览器不被支持。试试其他的：<a href="http://www.google.com/chrome">Google 浏览器</a>、<a href="http://www.apple.com/cn/safari/">Safari 浏览器</a>、<a href="http://www.firefox.com/">Firefox 浏览器</a>
+    </div>
+  </div>
+</div>
+<![endif]-->
+<div class="main">
+	<!--滚动ad start -->
+	<div class="contentbox bot hidden-xs">
+		<div class="container"><!--container start-->
+			<div class="row">
+				<div class="col-sm-12">
+					<!-- Slideshow -->
+					<!--div class="callbacks_container">
+						<ul class="rslides" id="slider">
+							<li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/1.jpg" alt=""></a></li>
+							<li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/2.jpg" alt=""></a></li>
+							<li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/1.jpg" alt=""></a></li>
+							<li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/2.jpg" alt=""></a></li>
+						</ul>
+					</div-->
+					<div class="callbacks_container">
+						<ul class="rslides" id="slider">
+						<li>
+						<script language="javascript" src="{APP_PATH}index.php?m=poster&c=index&a=show_poster&id=11"></script>
+						</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><!--container end-->
+	</div>
+	<!--滚动ad end -->
+	<!-- 正文start-->
+	<div class="contentbox bot">
+		<div class="container"><!--container start-->
+			<div class="row">
+				<!--推荐位滚动图片start-->
+				<div class="col-sm-4"><!--col-sm-4 start-->
+					<div class="slides">
+						<div class="FocusPic">
+							{pc:content  action="position" posid="1"  order="listorder DESC" thumb="1" num="5"}
+							<div class="content" id="main-slide">
+								<div class="changeDiv"> 
+								{loop $data $r}
+									<a href="{$r['url']}" title="{str_cut($r['title'],30)}"><img src="{thumb($r['thumb'],350,260)}" alt="{$r['title']}" width="350" height="260" /></a>
+								{/loop}
+								</div>
+							</div>
+							{/pc}
+						</div>
+					</div>
+				</div><!--col-sm-4 end -->
+				<!--推荐位滚动图片end-->
+				<div class="col-sm-4"><!--col-sm-4 start-->
+					<!--热点新闻start-->
+					<div class="news-hot">
+						<div class="content">
+						{pc:content  action="position" posid="2" order="listorder DESC" num="3"}
+						 {loop $data $r}
+							<h4 class="blue"><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],36,'')}</a></h4>
+							<p>{if $n==1}<img src="{thumb($r[thumb],90,60)}" width="90" height="60"/>{/if}{str_cut($r[description],112)}</p>
+							<div class="bk20 hr"><hr /></div>
+						   {/loop}  
+						 {/pc}   
+						</div>
+					</div>
+				</div><!--col-sm-4 end -->
+				<!--热点新闻end-->
+				<div class="col-sm-4"><!--col-sm-4 start-->
+					<!--newschannel start-->
+					<div class="newsbox left">
+						<div class="title01">
+							<div class="weather">
+								<iframe width="180" scrolling="no" height="20" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=1&icon=4&py=taiyuan&wind=1&num=1"></iframe>
+							</div>
+							<ul class="SwapTab01">
+								<li class="fb"><a target="_blank" href="{$CATEGORYS[19][url]}">{$CATEGORYS[19][catname]}</a></li>
+							</ul>
+						</div>
+						<div class="tab-content01">
+							<ul>
+								{pc:content action="lists" catid="19" num="1"  order="id" cache="3600"}
+								{loop $data $r}
+								<h1><a href="{$r[url]}" title="{$r[title]}" target="_blank">{str_cut($r[title],25)}</a></h1>
+								{/loop}
+								{/pc}
+								
+								{pc:content action="lists" catid="19" num="8" start="1"  order="id" cache="3600"}
+								{loop $data $r}
+								<li><span class="time">{date("m-d",$r[inputtime])}</span><a href="{$r[url]}" title="{$r[title]}" target="_blank">{$r[title]}</a></li>
+								{/loop}
+								{/pc}
+							</ul>
+						</div>
+					</div-->
+					<!--newschannel end-->
+				</div><!--col-sm-4 end -->
+				
+			</div><!--container end-->
+		</div>
+		<!--正文end-->
+	</div>
+</div>
+
+
+<!--footer引用-->
+{template "content","footer"}
+</body>
+</html>
