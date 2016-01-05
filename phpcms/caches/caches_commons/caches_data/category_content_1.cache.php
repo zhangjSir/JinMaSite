@@ -844,7 +844,7 @@ return array (
     'parentdir' => '',
     'catdir' => 'hadpicture',
     'url' => 'http://localhost:8080/phpcms/index.php?m=content&c=index&a=lists&catid=18',
-    'items' => '2',
+    'items' => '5',
     'hits' => '0',
     'setting' => 'array (
   \'workflowid\' => \'\',
