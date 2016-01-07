@@ -557,7 +557,7 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 /*newschannel*/
 .newsbox {
 	height: 280px;
-	width: 360px;
+	width: 100%;
 	border: 1px solid #99BBFF ;
 }
 .hidden {
@@ -567,10 +567,10 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 	background: url("../images/JinMa/gxll_tit01bg.gif") repeat-x 0px 1px;
 	height:32px;
 	line-height:32px;
-	font-size:14px;
+	font-size:12px;
 }
 .SwapTab01 li {
-	width:92px;
+	width:70px;
 	text-align:center;
 	float:left;
 	height:30px;
@@ -587,7 +587,7 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .SwapTab01 a {
 	color:#666;
 }
-.weather{ width:200px; float:right;overflow:hidden; height:25px; padding-top:2px;}
+.weather{ width:190px; float:right;overflow:hidden; height:25px; padding-top:2px;}
 
 .tab-content01 ul {
 	padding:0px 10px;
@@ -612,11 +612,11 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 }
 
 /*焦点图*/
-.section-focus-pic{margin:0px auto 0 auto;height:280px;width:380px;overflow:hidden;position:relative;}
+.section-focus-pic{padding-left:0px;height:280px;width:380px;overflow:hidden;position:relative;}
 .section-focus-pic ul li{position:absolute;top:0;left:380px;width:380px;height:280px;}
 .section-focus-pic ul li h3{position:absolute;bottom:11px;left:0;width: 380px;font-weight:normal;color:#FFF;margin-left: 15px;z-index: 111;font-size: 14px; font-family:"微软雅黑";}
 .section-focus-pic ul li div{position:absolute;bottom:0;left:0;height:50px;background-color:#000;width:380px;opacity: 0.6;filter: alpha(opacity=60);}
-.section-focus-pic .pages{width:380px;height:280px;}
+.section-focus-pic .pages{padding-left:0px;width:380px;height:280px;}
 .section-focus-pic .controler{position:absolute;bottom:20px;right:10px;}
 .section-focus-pic .controler b{cursor:pointer;width:20px;height:10px;display:block;overflow:hidden;text-indent:20px;background:url(../images/JinMa/pic/news_index_icon.png) no-repeat -136px 3px; float:left;margin:0 0 0 5px;}
 .section-focus-pic .controler b.down{background-position:-161px 1px;}

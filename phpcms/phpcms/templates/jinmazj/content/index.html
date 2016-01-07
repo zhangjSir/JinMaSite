@@ -1,152 +1,143 @@
 {template "content","header"}
 <!--main-->
 <div class="main">
-<!--滚动ad start -->
-<div class="contentbox bot hidden-xs">
-    <div class="container"><!--container start-->
-        <div class="row">
-            <div class="col-sm-12">
-                <!-- Slideshow -->
-                <!--div class="callbacks_container">
-                    <ul class="rslides" id="slider">
-                        <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/1.jpg" alt=""></a></li>
-                        <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/2.jpg" alt=""></a></li>
-                        <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/1.jpg" alt=""></a></li>
-                        <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/2.jpg" alt=""></a></li>
-                    </ul>
-                </div-->
-                <div class="callbacks_container">
-                    <ul class="rslides" id="slider">
-                        <li>
-                            <script language="javascript"
-                                    src="{APP_PATH}index.php?m=poster&c=index&a=show_poster&id=11"></script>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--container end-->
-</div>
-<!--滚动ad end -->
-<!-- 正文start-->
-<div class="contentbox">
     <!--container start-->
     <div class="container">
-        <!--row start-->
         <div class="row">
-            <!--推荐位滚动图片start-->
-            <!--col-sm-4 start-->
-            <div class="col-sm-4">
-                <!--焦点图-->
-                <div class="section-focus-pic" id="section-focus-pic">
-                    <div class="pages" data-scro="list">
-                        <ul>
-                            {pc:content action="position" posid="1" order="listorder DESC" thumb="1" num="5"}
-                            {loop $data $r}
-                            <li class="item" style="left:0px;">
-                                <a href="{$r['url']}" target="_blank"><img src="{thumb($r['thumb'],380,300)}"
-                                                                           width="380" height="300"></a>
-
-                                <h3><a href="{$r['url']}" target="_blank" style="color:#FFF;text-decoration:none;">{str_cut($r['title'],30)}</a>
-                                </h3>
-
-                                <div></div>
+             <!--滚动ad start -->
+            <div class="contentbox bot hidden-xs">
+                <div class="col-sm-12">
+                    <!-- Slideshow -->
+                    <!--div class="callbacks_container">
+                        <ul class="rslides" id="slider">
+                            <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/1.jpg" alt=""></a></li>
+                            <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/2.jpg" alt=""></a></li>
+                            <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/1.jpg" alt=""></a></li>
+                            <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/2.jpg" alt=""></a></li>
+                        </ul>
+                    </div-->
+                    <div class="callbacks_container">
+                        <ul class="rslides" id="slider">
+                            <li>
+                                <script language="javascript"
+                                        src="{APP_PATH}index.php?m=poster&c=index&a=show_poster&id=11"></script>
                             </li>
-                            {/loop}
-                            {/pc}
                         </ul>
                     </div>
-                    <div class="controler" data-scro="controler">
-                        <b class="down">1</b>
-                        <b>2</b>
-                        <b>3</b>
-                        <b>4</b>
-                        <b>5</b>
-                    </div>
-                    <div class="controler2" data-scro="controler2">
-                        <a href="javascript:;" class="prev"><i></i></a>
-                        <a href="javascript:;" class="next"><i></i></a>
-                    </div>
                 </div>
-                <!--焦点图-->
             </div>
-            <!--col-sm-4 end -->
-            <!--推荐位滚动图片end-->
-            <!--热点新闻start-->
-            <!--col-sm-4 start-->
-            <div class="col-sm-4">
-                <div class="news-hot">
-                    <div class="content">
-                        {pc:content action="position" posid="2" order="listorder DESC" num="3"}
-                        {loop $data $r}
-                        <h4 class="blue"><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],36,'')}</a></h4>
+            <!--滚动ad end -->
+            <div class="col-sm-9">
 
-                        <p>{if $n==1}<img src="{thumb($r[thumb],90,60)}" width="90" height="60"/>{/if}{str_cut($r[description],112)}
-                        </p>
+                <!--推荐位滚动图片start-->
+                <!--col-sm-4 start-->
+                <div class="col-sm-6">
+                    <!--焦点图-->
+                    <div class="section-focus-pic" id="section-focus-pic">
+                        <div class="pages" data-scro="list">
+                            <ul>
+                                {pc:content action="position" posid="1" order="listorder DESC" thumb="1" num="5"}
+                                {loop $data $r}
+                                <li class="item" style="left:0px;">
+                                    <a href="{$r['url']}" target="_blank"><img src="{thumb($r['thumb'],380,300)}"
+                                                                               width="380" height="300"></a>
 
-                        <div class="bk20 hr">
-                            <hr/>
+                                    <h3><a href="{$r['url']}" target="_blank" style="color:#FFF;text-decoration:none;">{str_cut($r['title'],30)}</a>
+                                    </h3>
+
+                                    <div></div>
+                                </li>
+                                {/loop}
+                                {/pc}
+                            </ul>
                         </div>
-                        {/loop}
-                        {/pc}
-                    </div>
-                </div>
-            </div>
-            <!--col-sm-4 end -->
-            <!--热点新闻end-->
-            <!--金码新闻频道start-->
-            <!--col-sm-4 start-->
-            <div class="col-sm-4">
-                <div class="newsbox left">
-                    <div class="title01">
-                        <div class="weather">
-                            <iframe width="180" scrolling="no" height="20" frameborder="0" allowtransparency="true"
-                                    src="http://i.tianqi.com/index.php?c=code&id=1&icon=4&py=taiyuan&wind=1&num=1"></iframe>
+                        <div class="controler" data-scro="controler">
+                            <b class="down">1</b>
+                            <b>2</b>
+                            <b>3</b>
+                            <b>4</b>
+                            <b>5</b>
                         </div>
-                        <ul class="SwapTab01">
-                            <li class="fb"><a target="_blank" href="{$CATEGORYS[19][url]}">{$CATEGORYS[19][catname]}</a>
-                            </li>
-                        </ul>
+                        <div class="controler2" data-scro="controler2">
+                            <a href="javascript:;" class="prev"><i></i></a>
+                            <a href="javascript:;" class="next"><i></i></a>
+                        </div>
                     </div>
-                    <div class="tab-content01">
-                        <ul>
-                            {pc:content action="lists" catid="19" num="1" order="id" cache="3600"}
-                            {loop $data $r}
-                            <h1><a href="{$r[url]}" title="{$r[title]}" target="_blank">{str_cut($r[title],25)}</a></h1>
-                            {/loop}
-                            {/pc}
+                    <!--焦点图-->
+                </div>
+                <!--col-sm-4 end -->
+                <!--推荐位滚动图片end-->
 
-                            {pc:content action="lists" catid="19" num="8" start="1" order="id" cache="3600"}
+                <!--热点新闻start-->
+                <!--col-sm-4 start-->
+                <div class="col-sm-6">
+                    <div class="news-hot">
+                        <div class="content">
+                            {pc:content action="position" posid="2" order="listorder DESC" num="3"}
                             {loop $data $r}
-                            <li><span class="time">{date("m-d",$r[inputtime])}</span><a href="{$r[url]}"
-                                                                                        title="{$r[title]}"
-                                                                                        target="_blank">{$r[title]}</a>
-                            </li>
+                            <h4 class="blue"><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],36,'')}</a></h4>
+
+                            <p>{if $n==1}<img src="{thumb($r[thumb],90,60)}" width="90" height="60"/>{/if}{str_cut($r[description],112)}
+                            </p>
+
+                            <div class="bk20 hr">
+                                <hr/>
+                            </div>
                             {/loop}
                             {/pc}
-                        </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!--col-sm-4 end -->
-            <!--金码新闻频道end-->
-        </div>
-        <!--row end-->
-        <!--row start-->
-        <div class="row">
-            <!--col-sm-4 start-->
-            <div class="col-sm-4">
+                <!--col-sm-4 end -->
+                <!--热点新闻end-->
 
             </div>
-            <!--col-sm-4 end -->
+            <!--right start-->
+            <div class="col-sm-3">
+                <div class="row conr">
+                    <!--金码新闻频道start-->
+                    <div class="col-sm-12">
+                        <div class="newsbox left">
+                            <div class="title01">
+                                <div class="weather">
+                                    <iframe width="160" scrolling="no" height="20" frameborder="0" allowtransparency="true"
+                                            src="http://i.tianqi.com/index.php?c=code&id=1&icon=4&py=taiyuan&wind=1&num=1"></iframe>
+                                </div>
+                                <ul class="SwapTab01">
+                                    <li class="fb"><a target="_blank" href="{$CATEGORYS[19][url]}">{$CATEGORYS[19][catname]}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-content01">
+                                <ul>
+                                    {pc:content action="lists" catid="19" num="1" order="id" cache="3600"}
+                                    {loop $data $r}
+                                    <h1><a href="{$r[url]}" title="{$r[title]}" target="_blank">{str_cut($r[title],25)}</a></h1>
+                                    {/loop}
+                                    {/pc}
+
+                                    {pc:content action="lists" catid="19" num="8" start="1" order="id" cache="3600"}
+                                    {loop $data $r}
+                                    <li><span class="time">{date("m-d",$r[inputtime])}</span><a href="{$r[url]}"
+                                                                                                title="{$r[title]}"
+                                                                                                target="_blank">{$r[title]}</a>
+                                    </li>
+                                    {/loop}
+                                    {/pc}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--金码新闻频道end-->
+                </div>
+            </div>
+            <!--right end-->
         </div>
         <!--row end-->
     </div>
     <!--container end-->
 </div>
-<!--正文end-->
-
+<!--main end-->
 
 <script type="text/javascript" src="{JS_PATH}pic/script.js"></script>
 
