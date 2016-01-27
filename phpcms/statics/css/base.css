@@ -131,6 +131,22 @@ div[class="panel-body"] .article-title {
     color: #555;
     text-decoration: none;
     cursor: pointer; }
+  /*add new */
+div[class="panel-body"] .box{
+border:1px solid #c3d4e7;zoom:1; overflow:auto; padding-bottom:10px
+}
+div[class="panel-body"] .box h5{
+  background: url(../images/v9/title.png) no-repeat right top;color:#1e50a2; height:26px; margin-bottom:10px;
+  line-height:26px; padding-left:10px;border-bottom:1px solid #dce7f3; position:relative
+}
+div[class="panel-body"] .box h6{
+  background: url(../images/v9/title.png) no-repeat right top;color:#1e50a2; height:26px; margin-bottom:10px;
+  line-height:26px; padding-left:10px;border-bottom:1px solid #dce7f3; position:relative
+}
+
+div[class="panel-body"] .box h5 title1{
+  background-position: right -52px
+}
 
 @media (min-width: 768px) {
   .conr .col-sm-12 {
@@ -143,7 +159,7 @@ div[class="panel-body"] .article-title {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 248px; }
+    width: 300px; }
     .foot .bj ul li {
       border-right: 1px solid #aaa; }
     .foot .bj ul li:last-of-type {
@@ -291,10 +307,14 @@ div[class="text-center"] {
   font-family: Verdana,Arial,Helvetica,sans-serif; }
 
 .showContext blockquote {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   color: #333;
   font-family: "Microsoft Yahei";
-  border-left: 5px solid #ea6153; }
+  border-left: 5px solid #ea6153;
+  background-color: #ECECEC; }
+
+.context {
+  margin-top: 10px; }
 
 /*# sourceMappingURL=base.css.map */

@@ -25,20 +25,6 @@
 <meta name="keywords" content="jinmazj">
 <meta name="description" content="jinmazj">
 
-<script type="text/javascript">
-
-	$(function(){
-  
-	  $("#menu > li").bind('mouseenter', function() {
-		$(this).addClass('open');
-	  });
-
-	  $("#menu > li").bind('mouseleave', function() {
-		$(this).removeClass('open');
-	  });
-	  
-	});
-</script> 
 </head>
 <body>
 <div class="body-top">
@@ -224,173 +210,189 @@
 
 <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+
+
+<script type="text/javascript">
+
+	$(function(){
+
+		$("#menu > li").bind('mouseenter', function() {
+			$(this).addClass('open');
+		});
+
+		$("#menu > li").bind('mouseleave', function() {
+			$(this).removeClass('open');
+		});
+
+	});
+</script>
 </body>
 
 <!--main-->
 <div class="main">
-<!--滚动ad start -->
-<div class="contentbox bot hidden-xs">
-    <div class="container"><!--container start-->
-        <div class="row">
-            <div class="col-sm-12">
-                <!-- Slideshow -->
-                <!--div class="callbacks_container">
-                    <ul class="rslides" id="slider">
-                        <li><a href="http://www.17sucai.com/"><img src="http://localhost:8080/phpcms/statics/images/JinMa/1.jpg" alt=""></a></li>
-                        <li><a href="http://www.17sucai.com/"><img src="http://localhost:8080/phpcms/statics/images/JinMa/2.jpg" alt=""></a></li>
-                        <li><a href="http://www.17sucai.com/"><img src="http://localhost:8080/phpcms/statics/images/JinMa/1.jpg" alt=""></a></li>
-                        <li><a href="http://www.17sucai.com/"><img src="http://localhost:8080/phpcms/statics/images/JinMa/2.jpg" alt=""></a></li>
-                    </ul>
-                </div-->
-                <div class="callbacks_container">
-                    <ul class="rslides" id="slider">
-                        <li>
-                            <script language="javascript"
-                                    src="http://localhost:8080/phpcms/index.php?m=poster&c=index&a=show_poster&id=11"></script>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--container end-->
-</div>
-<!--滚动ad end -->
-<!-- 正文start-->
-<div class="contentbox bot">
     <!--container start-->
     <div class="container">
-        <!--row start-->
         <div class="row">
-            <!--推荐位滚动图片start-->
-            <!--col-sm-4 start-->
-            <div class="col-sm-4">
-                <!--焦点图-->
-                <div class="section-focus-pic" id="section-focus-pic">
-                    <div class="pages" data-scro="list">
-                        <ul>
-                                                                                    <li class="item" style="left:0px;">
-                                <a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=5" target="_blank"><img src="http://localhost:8080/phpcms/uploadfile/2016/0105/thumb_380_300_20160105044919568.jpg"
-                                                                           width="380" height="300"></a>
-
-                                <h3><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=5" target="_blank" style="color:#FFF;text-decoration:none;">测试焦点图</a>
-                                </h3>
-
-                                <div></div>
-                            </li>
-                                                        <li class="item" style="left:0px;">
-                                <a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=4" target="_blank"><img src="http://localhost:8080/phpcms/uploadfile/2016/0105/thumb_380_300_20160105044719337.jpg"
-                                                                           width="380" height="300"></a>
-
-                                <h3><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=4" target="_blank" style="color:#FFF;text-decoration:none;">八卦</a>
-                                </h3>
-
-                                <div></div>
-                            </li>
-                                                        <li class="item" style="left:0px;">
-                                <a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=3" target="_blank"><img src="http://localhost:8080/phpcms/uploadfile/2016/0105/thumb_380_300_20160105022727515.jpg"
-                                                                           width="380" height="300"></a>
-
-                                <h3><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=3" target="_blank" style="color:#FFF;text-decoration:none;">测试</a>
-                                </h3>
-
-                                <div></div>
-                            </li>
-                                                        <li class="item" style="left:0px;">
-                                <a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=2" target="_blank"><img src="http://localhost:8080/phpcms/uploadfile/2015/1218/20151218111607889.jpg"
-                                                                           width="380" height="300"></a>
-
-                                <h3><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=2" target="_blank" style="color:#FFF;text-decoration:none;">智能家居-智慧微管家</a>
-                                </h3>
-
-                                <div></div>
-                            </li>
-                                                        <li class="item" style="left:0px;">
-                                <a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=1" target="_blank"><img src="http://localhost:8080/phpcms/uploadfile/2015/1218/thumb_380_300_20151218114553920.jpg"
-                                                                           width="380" height="300"></a>
-
-                                <h3><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=1" target="_blank" style="color:#FFF;text-decoration:none;">同德智慧家居管</a>
-                                </h3>
-
-                                <div></div>
-                            </li>
-                                                                                </ul>
-                    </div>
-                    <div class="controler" data-scro="controler">
-                        <b class="down">1</b>
-                        <b>2</b>
-                        <b>3</b>
-                        <b>4</b>
-                        <b>5</b>
-                    </div>
-                    <div class="controler2" data-scro="controler2">
-                        <a href="javascript:;" class="prev"><i></i></a>
-                        <a href="javascript:;" class="next"><i></i></a>
-                    </div>
-                </div>
-                <!--焦点图-->
-            </div>
-            <!--col-sm-4 end -->
-            <!--推荐位滚动图片end-->
-            <!--热点新闻start-->
-            <!--col-sm-4 start-->
-            <div class="col-sm-4">
-                <div class="news-hot">
-                    <div class="content">
-                                                                        <h4 class="blue"><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=2" title="智能家居-智慧微管家">智能家居-智慧微管家</a></h4>
-
-                        <p><img src="http://localhost:8080/phpcms/uploadfile/2015/1218/thumb_90_60_20151218111607889.jpg" width="90" height="60"/>智能，家居，微管家                        </p>
-
-                        <div class="bk20 hr">
-                            <hr/>
-                        </div>
-                                                <h4 class="blue"><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=1" title="同德智慧家居管">同德智慧家居管</a></h4>
-
-                        <p>同德智慧家居管                        </p>
-
-                        <div class="bk20 hr">
-                            <hr/>
-                        </div>
-                                                                    </div>
-                </div>
-            </div>
-            <!--col-sm-4 end -->
-            <!--热点新闻end-->
-            <!--金码新闻频道start-->
-            <!--col-sm-4 start-->
-            <div class="col-sm-4">
-                <div class="newsbox left">
-                    <div class="title01">
-                        <div class="weather">
-                            <iframe width="180" scrolling="no" height="20" frameborder="0" allowtransparency="true"
-                                    src="http://i.tianqi.com/index.php?c=code&id=1&icon=4&py=taiyuan&wind=1&num=1"></iframe>
-                        </div>
-                        <ul class="SwapTab01">
-                            <li class="fb"><a target="_blank" href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=lists&catid=19">金码新闻</a>
+             <!--滚动ad start -->
+            <div class="contentbox bot hidden-xs">
+                <div class="col-sm-12">
+                    <!-- Slideshow -->
+                    <!--div class="callbacks_container">
+                        <ul class="rslides" id="slider">
+                            <li><a href="http://www.17sucai.com/"><img src="http://localhost:8080/phpcms/statics/images/JinMa/1.jpg" alt=""></a></li>
+                            <li><a href="http://www.17sucai.com/"><img src="http://localhost:8080/phpcms/statics/images/JinMa/2.jpg" alt=""></a></li>
+                            <li><a href="http://www.17sucai.com/"><img src="http://localhost:8080/phpcms/statics/images/JinMa/1.jpg" alt=""></a></li>
+                            <li><a href="http://www.17sucai.com/"><img src="http://localhost:8080/phpcms/statics/images/JinMa/2.jpg" alt=""></a></li>
+                        </ul>
+                    </div-->
+                    <div class="callbacks_container">
+                        <ul class="rslides" id="slider">
+                            <li>
+                                <script language="javascript"
+                                        src="http://localhost:8080/phpcms/index.php?m=poster&c=index&a=show_poster&id=11"></script>
                             </li>
                         </ul>
                     </div>
-                    <div class="tab-content01">
-                        <ul>
-                                                                                    <h1><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=19&id=1" title="新站即将上线" target="_blank">新站即将上线</a></h1>
-                                                        
-                                                                                    <li><span class="time">12-18</span><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=19&id=2"
-                                                                                        title="智慧社区挂牌"
-                                                                                        target="_blank">智慧社区挂牌</a>
-                            </li>
-                                                                                </ul>
-                    </div>
                 </div>
             </div>
-            <!--col-sm-4 end -->
-            <!--金码新闻频道end-->
+            <!--滚动ad end -->
+            <div class="col-sm-9">
+
+                <!--推荐位滚动图片start-->
+                <!--col-sm-4 start-->
+                <div class="col-sm-6">
+                    <!--焦点图-->
+                    <div class="section-focus-pic" id="section-focus-pic">
+                        <div class="pages" data-scro="list">
+                            <ul>
+                                                                                                <li class="item" style="left:0px;">
+                                    <a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=5" target="_blank"><img src="http://localhost:8080/phpcms/uploadfile/2016/0105/thumb_380_300_20160105044919568.jpg"
+                                                                               width="380" height="300"></a>
+
+                                    <h3><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=5" target="_blank" style="color:#FFF;text-decoration:none;">测试焦点图</a>
+                                    </h3>
+
+                                    <div></div>
+                                </li>
+                                                                <li class="item" style="left:0px;">
+                                    <a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=4" target="_blank"><img src="http://localhost:8080/phpcms/uploadfile/2016/0105/thumb_380_300_20160105044719337.jpg"
+                                                                               width="380" height="300"></a>
+
+                                    <h3><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=4" target="_blank" style="color:#FFF;text-decoration:none;">八卦</a>
+                                    </h3>
+
+                                    <div></div>
+                                </li>
+                                                                <li class="item" style="left:0px;">
+                                    <a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=3" target="_blank"><img src="http://localhost:8080/phpcms/uploadfile/2016/0105/thumb_380_300_20160105022727515.jpg"
+                                                                               width="380" height="300"></a>
+
+                                    <h3><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=3" target="_blank" style="color:#FFF;text-decoration:none;">测试</a>
+                                    </h3>
+
+                                    <div></div>
+                                </li>
+                                                                <li class="item" style="left:0px;">
+                                    <a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=2" target="_blank"><img src="http://localhost:8080/phpcms/uploadfile/2015/1218/20151218111607889.jpg"
+                                                                               width="380" height="300"></a>
+
+                                    <h3><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=2" target="_blank" style="color:#FFF;text-decoration:none;">智能家居-智慧微管家</a>
+                                    </h3>
+
+                                    <div></div>
+                                </li>
+                                                                <li class="item" style="left:0px;">
+                                    <a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=1" target="_blank"><img src="http://localhost:8080/phpcms/uploadfile/2015/1218/thumb_380_300_20151218114553920.jpg"
+                                                                               width="380" height="300"></a>
+
+                                    <h3><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=1" target="_blank" style="color:#FFF;text-decoration:none;">同德智慧家居管</a>
+                                    </h3>
+
+                                    <div></div>
+                                </li>
+                                                                                            </ul>
+                        </div>
+                        <div class="controler" data-scro="controler">
+                            <b class="down">1</b>
+                            <b>2</b>
+                            <b>3</b>
+                            <b>4</b>
+                            <b>5</b>
+                        </div>
+                        <div class="controler2" data-scro="controler2">
+                            <a href="javascript:;" class="prev"><i></i></a>
+                            <a href="javascript:;" class="next"><i></i></a>
+                        </div>
+                    </div>
+                    <!--焦点图-->
+                </div>
+                <!--col-sm-4 end -->
+                <!--推荐位滚动图片end-->
+
+                <!--热点新闻start-->
+                <!--col-sm-4 start-->
+                <div class="col-sm-6">
+                    <div class="news-hot">
+                        <div class="content">
+                                                                                    <h4 class="blue"><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=2" title="智能家居-智慧微管家">智能家居-智慧微管家</a></h4>
+
+                            <p><img src="http://localhost:8080/phpcms/uploadfile/2015/1218/thumb_90_60_20151218111607889.jpg" width="90" height="60"/>智能，家居，微管家                            </p>
+
+                            <div class="bk20 hr">
+                                <hr/>
+                            </div>
+                                                        <h4 class="blue"><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=18&id=1" title="同德智慧家居管">同德智慧家居管</a></h4>
+
+                            <p>同德智慧家居管                            </p>
+
+                            <div class="bk20 hr">
+                                <hr/>
+                            </div>
+                                                                                </div>
+                    </div>
+                </div>
+                <!--col-sm-4 end -->
+                <!--热点新闻end-->
+
+            </div>
+            <!--right start-->
+            <div class="col-sm-3">
+                <div class="row conr">
+                    <!--金码新闻频道start-->
+                    <div class="col-sm-12">
+                        <div class="newsbox left">
+                            <div class="title01">
+                                <div class="weather">
+                                    <iframe width="160" scrolling="no" height="20" frameborder="0" allowtransparency="true"
+                                            src="http://i.tianqi.com/index.php?c=code&id=1&icon=4&py=taiyuan&wind=1&num=1"></iframe>
+                                </div>
+                                <ul class="SwapTab01">
+                                    <li class="fb"><a target="_blank" href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=lists&catid=19">金码新闻</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-content01">
+                                <ul>
+                                                                                                            <h1><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=19&id=1" title="新站即将上线" target="_blank">新站即将上线</a></h1>
+                                                                        
+                                                                                                            <li><span class="time">12-18</span><a href="http://localhost:8080/phpcms/index.php?m=content&c=index&a=show&catid=19&id=2"
+                                                                                                title="智慧社区挂牌"
+                                                                                                target="_blank">智慧社区挂牌</a>
+                                    </li>
+                                                                                                        </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--金码新闻频道end-->
+                </div>
+            </div>
+            <!--right end-->
         </div>
         <!--row end-->
     </div>
     <!--container end-->
 </div>
-<!--正文end-->
-
+<!--main end-->
 
 <script type="text/javascript" src="http://localhost:8080/phpcms/statics/js/pic/script.js"></script>
 

@@ -1,137 +1,309 @@
 {template "content","header"}
 <!--main-->
-<div class="main">
+<!--suppress ALL -->
+<div class="context">
     <!--container start-->
     <div class="container">
         <div class="row">
-             <!--滚动ad start -->
-            <div class="contentbox bot hidden-xs">
-                <div class="col-sm-12">
-                    <!-- Slideshow -->
-                    <!--div class="callbacks_container">
-                        <ul class="rslides" id="slider">
-                            <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/1.jpg" alt=""></a></li>
-                            <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/2.jpg" alt=""></a></li>
-                            <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/1.jpg" alt=""></a></li>
-                            <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/2.jpg" alt=""></a></li>
-                        </ul>
-                    </div-->
-                    <div class="callbacks_container">
-                        <ul class="rslides" id="slider">
-                            <li>
-                                <script language="javascript"
-                                        src="{APP_PATH}index.php?m=poster&c=index&a=show_poster&id=11"></script>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--滚动ad end -->
-            <div class="col-sm-9">
-
-                <!--推荐位滚动图片start-->
-                <!--col-sm-4 start-->
-                <div class="col-sm-6">
-                    <!--焦点图-->
-                    <div class="section-focus-pic" id="section-focus-pic">
-                        <div class="pages" data-scro="list">
-                            <ul>
-                                {pc:content action="position" posid="1" order="listorder DESC" thumb="1" num="5"}
-                                {loop $data $r}
-                                <li class="item" style="left:0px;">
-                                    <a href="{$r['url']}" target="_blank"><img src="{thumb($r['thumb'],380,300)}"
-                                                                               width="380" height="300"></a>
-
-                                    <h3><a href="{$r['url']}" target="_blank" style="color:#FFF;text-decoration:none;">{str_cut($r['title'],30)}</a>
-                                    </h3>
-
-                                    <div></div>
+            <!--left start-->
+            <div class="col-sm-9" id="content">
+                <!--滚动ad start -->
+                <!--<div class="contentbox bot hidden-xs">
+                    <div class="col-sm-12">
+                        <!-- Slideshow -->
+                        <!--div class="callbacks_container">
+                            <ul class="rslides" id="slider">
+                                <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/1.jpg" alt=""></a></li>
+                                <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/2.jpg" alt=""></a></li>
+                                <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/1.jpg" alt=""></a></li>
+                                <li><a href="http://www.17sucai.com/"><img src="{IMG_PATH}JinMa/2.jpg" alt=""></a></li>
+                            </ul>
+                        </div-->
+                        <!--div class="callbacks_container">
+                            <ul class="rslides" id="slider">
+                                <li>
+                                    <script language="javascript"
+                                            src="{APP_PATH}index.php?m=poster&c=index&a=show_poster&id=11"></script>
                                 </li>
-                                {/loop}
-                                {/pc}
                             </ul>
                         </div>
-                        <div class="controler" data-scro="controler">
-                            <b class="down">1</b>
-                            <b>2</b>
-                            <b>3</b>
-                            <b>4</b>
-                            <b>5</b>
-                        </div>
-                        <div class="controler2" data-scro="controler2">
-                            <a href="javascript:;" class="prev"><i></i></a>
-                            <a href="javascript:;" class="next"><i></i></a>
-                        </div>
                     </div>
-                    <!--焦点图-->
-                </div>
-                <!--col-sm-4 end -->
-                <!--推荐位滚动图片end-->
+                </div-->
+                <!--滚动ad end -->
+                <div class="col-sm-12">
 
-                <!--热点新闻start-->
-                <!--col-sm-4 start-->
-                <div class="col-sm-6">
-                    <div class="news-hot">
-                        <div class="content">
-                            {pc:content action="position" posid="2" order="listorder DESC" num="3"}
-                            {loop $data $r}
-                            <h4 class="blue"><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],36,'')}</a></h4>
-
-                            <p>{if $n==1}<img src="{thumb($r[thumb],90,60)}" width="90" height="60"/>{/if}{str_cut($r[description],112)}
-                            </p>
-
-                            <div class="bk20 hr">
-                                <hr/>
-                            </div>
-                            {/loop}
-                            {/pc}
-                        </div>
-                    </div>
-                </div>
-                <!--col-sm-4 end -->
-                <!--热点新闻end-->
-
-            </div>
-            <!--right start-->
-            <div class="col-sm-3">
-                <div class="row conr">
-                    <!--金码新闻频道start-->
-                    <div class="col-sm-12">
-                        <div class="newsbox left">
-                            <div class="title01">
-                                <div class="weather">
-                                    <iframe width="160" scrolling="no" height="20" frameborder="0" allowtransparency="true"
-                                            src="http://i.tianqi.com/index.php?c=code&id=1&icon=4&py=taiyuan&wind=1&num=1"></iframe>
-                                </div>
-                                <ul class="SwapTab01">
-                                    <li class="fb"><a target="_blank" href="{$CATEGORYS[19][url]}">{$CATEGORYS[19][catname]}</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tab-content01">
+                    <!--推荐位滚动图片start-->
+                    <!--col-sm-6 start-->
+                    <div class="col-sm-6">
+                        <!--焦点图-->
+                        <div class="section-focus-pic" id="section-focus-pic">
+                            <div class="pages" data-scro="list">
                                 <ul>
-                                    {pc:content action="lists" catid="19" num="1" order="id" cache="3600"}
+                                    {pc:content action="position" posid="1" order="listorder DESC" thumb="1" num="5"}
                                     {loop $data $r}
-                                    <h1><a href="{$r[url]}" title="{$r[title]}" target="_blank">{str_cut($r[title],25)}</a></h1>
-                                    {/loop}
-                                    {/pc}
+                                    <li class="item" style="left:0px;">
+                                        <a href="{$r['url']}" target="_blank"><img src="{thumb($r['thumb'],380,300)}"
+                                                                                   width="380" height="300"></a>
 
-                                    {pc:content action="lists" catid="19" num="8" start="1" order="id" cache="3600"}
-                                    {loop $data $r}
-                                    <li><span class="time">{date("m-d",$r[inputtime])}</span><a href="{$r[url]}"
-                                                                                                title="{$r[title]}"
-                                                                                                target="_blank">{$r[title]}</a>
+                                        <h3><a href="{$r['url']}" target="_blank" style="color:#FFF;text-decoration:none;">{str_cut($r['title'],30)}</a>
+                                        </h3>
+
+                                        <div></div>
                                     </li>
                                     {/loop}
                                     {/pc}
                                 </ul>
                             </div>
+                            <div class="controler" data-scro="controler">
+                                <b class="down">1</b>
+                                <b>2</b>
+                                <b>3</b>
+                                <b>4</b>
+                                <b>5</b>
+                            </div>
+                            <div class="controler2" data-scro="controler2">
+                                <a href="javascript:;" class="prev"><i></i></a>
+                                <a href="javascript:;" class="next"><i></i></a>
+                            </div>
+                        </div>
+                        <!--焦点图-->
+                    </div>
+                    <!--col-sm-6 end -->
+                    <!--推荐位滚动图片end-->
+
+                    <!--热点新闻start-->
+                    <!--col-sm-4 start-->
+                    <div class="col-sm-6">
+                        <div class="news-hot">
+                            <div class="content">
+                                {pc:content action="position" posid="2" order="listorder DESC" num="3"}
+                                {loop $data $r}
+                                <h4 class="blue"><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],36,'')}</a></h4>
+
+                                <p>{if $n==1}<img src="{thumb($r[thumb],90,60)}" width="90" height="60"/>{/if}{str_cut($r[description],112)}
+                                </p>
+
+                                <div class="bk20 hr">
+                                    <hr/>
+                                </div>
+                                {/loop}
+                                {/pc}
+                            </div>
                         </div>
                     </div>
-                    <!--金码新闻频道end-->
+                    <!--col-sm-4 end -->
+                    <!--热点新闻end-->
+
                 </div>
+
+                <!--java知识start-->
+                <div class="col-sm-12">
+                    <div class="bk10"></div>
+                    <div class="panel panel-default" >
+                        <div class="panel-body box">
+                            <h5 class="title-1">java知识专栏<a href="{APP_PATH}index.php?m=special&c=index&a=special&siteid={$siteid}" class="more">更多>></a></h5>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <a href="http://www.manzj.net/it/37.html" target="_blank" class="thumbnail">
+                                        <img alt="30岁左右的程序员，你迷惘了吗?[转载]" class="img-responsive" src="%E7%A0%81%E5%86%9C%E4%B9%8B%E5%AE%B6-www.manzj.net_files/20160121041159419.jpg">
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4 class="h4o"><a href="http://www.manzj.net/it/37.html" target="_blank">30岁左右的程序员，你迷惘了吗?[转载]</a></h4>
+                                    <ul class="list-inline">
+                                        <li><i class="fa fa-clock-o fa-fw"></i> 2016-01-21</li>
+                                        <li><i class="fa fa-eye fa-fw"></i> 点击量：45</li>
+                                        <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id="sourceId::37" class="cy_cmt_count">11</span></li>
+                                    </ul>
+                                    <p class="note">
+                                        [前言]　 本文写给30左右还奋斗于编写岗位的程序员们，因为在这个年龄段，可能技能、岗位、收入都已相对稳定，但同时，大家或多或少有些不   ...
+                                    </p>
+                                    <p>
+                                        <span class="label label-info ">标签：</span>
+                                        <a href="http://www.manzj.net/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=%E7%A8%8B%E5%BA%8F%E5%91%98">程序员</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--java知识end-->
+
+                <!--.net知识start-->
+                <div class="col-sm-12">
+                    <div class="bk10"></div>
+                    <div class="panel panel-default" >
+                        <div class="panel-body box">
+                            <h5 class="title-1">.net知识专栏<a href="{APP_PATH}index.php?m=special&c=index&a=special&siteid={$siteid}" class="more">更多>></a></h5>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <a href="http://www.manzj.net/it/37.html" target="_blank" class="thumbnail">
+                                        <img alt="30岁左右的程序员，你迷惘了吗?[转载]" class="img-responsive" src="%E7%A0%81%E5%86%9C%E4%B9%8B%E5%AE%B6-www.manzj.net_files/20160121041159419.jpg">
+                                    </a>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4 class="h4o"><a href="http://www.manzj.net/it/37.html" target="_blank">30岁左右的程序员，你迷惘了吗?[转载]</a></h4>
+                                    <ul class="list-inline">
+                                        <li><i class="fa fa-clock-o fa-fw"></i> 2016-01-21</li>
+                                        <li><i class="fa fa-eye fa-fw"></i> 点击量：45</li>
+                                        <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id="sourceId::37" class="cy_cmt_count">11</span></li>
+                                    </ul>
+                                    <p class="note">
+                                        [前言]　 本文写给30左右还奋斗于编写岗位的程序员们，因为在这个年龄段，可能技能、岗位、收入都已相对稳定，但同时，大家或多或少有些不   ...
+                                    </p>
+                                    <p>
+                                        <span class="label label-info ">标签：</span>
+                                        <a href="http://www.manzj.net/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=%E7%A8%8B%E5%BA%8F%E5%91%98">程序员</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--.net知识end-->
+
+                 <!--php知识start-->
+                 <div class="col-sm-12">
+                     <div class="bk10"></div>
+                     <div class="panel panel-default" >
+                         <div class="panel-body box">
+                             <h5 class="title-1">php知识专栏<a href="{APP_PATH}index.php?m=special&c=index&a=special&siteid={$siteid}" class="more">更多>></a></h5>
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <a href="http://www.manzj.net/it/37.html" target="_blank" class="thumbnail">
+                                         <img alt="30岁左右的程序员，你迷惘了吗?[转载]" class="img-responsive" src="%E7%A0%81%E5%86%9C%E4%B9%8B%E5%AE%B6-www.manzj.net_files/20160121041159419.jpg">
+                                     </a>
+                                 </div>
+                                 <div class="col-sm-9">
+                                     <h4 class="h4o"><a href="http://www.manzj.net/it/37.html" target="_blank">30岁左右的程序员，你迷惘了吗?[转载]</a></h4>
+                                     <ul class="list-inline">
+                                         <li><i class="fa fa-clock-o fa-fw"></i> 2016-01-21</li>
+                                         <li><i class="fa fa-eye fa-fw"></i> 点击量：45</li>
+                                         <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id="sourceId::37" class="cy_cmt_count">11</span></li>
+                                     </ul>
+                                     <p class="note">
+                                         [前言]　 本文写给30左右还奋斗于编写岗位的程序员们，因为在这个年龄段，可能技能、岗位、收入都已相对稳定，但同时，大家或多或少有些不   ...
+                                     </p>
+                                     <p>
+                                         <span class="label label-info ">标签：</span>
+                                         <a href="http://www.manzj.net/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=%E7%A8%8B%E5%BA%8F%E5%91%98">程序员</a>
+                                     </p>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <!--php知识end-->
+
+                 <!--flex知识start-->
+                 <div class="col-sm-12">
+                     <div class="bk10"></div>
+                     <div class="panel panel-default" >
+                         <div class="panel-body box">
+                             <h5 class="title-1">flex知识专栏<a href="{APP_PATH}index.php?m=special&c=index&a=special&siteid={$siteid}" class="more">更多>></a></h5>
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <a href="http://www.manzj.net/it/37.html" target="_blank" class="thumbnail">
+                                         <img alt="30岁左右的程序员，你迷惘了吗?[转载]" class="img-responsive" src="%E7%A0%81%E5%86%9C%E4%B9%8B%E5%AE%B6-www.manzj.net_files/20160121041159419.jpg">
+                                     </a>
+                                 </div>
+                                 <div class="col-sm-9">
+                                     <h4 class="h4o"><a href="http://www.manzj.net/it/37.html" target="_blank">30岁左右的程序员，你迷惘了吗?[转载]</a></h4>
+                                     <ul class="list-inline">
+                                         <li><i class="fa fa-clock-o fa-fw"></i> 2016-01-21</li>
+                                         <li><i class="fa fa-eye fa-fw"></i> 点击量：45</li>
+                                         <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id="sourceId::37" class="cy_cmt_count">11</span></li>
+                                     </ul>
+                                     <p class="note">
+                                         [前言]　 本文写给30左右还奋斗于编写岗位的程序员们，因为在这个年龄段，可能技能、岗位、收入都已相对稳定，但同时，大家或多或少有些不   ...
+                                     </p>
+                                     <p>
+                                         <span class="label label-info ">标签：</span>
+                                         <a href="http://www.manzj.net/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=%E7%A8%8B%E5%BA%8F%E5%91%98">程序员</a>
+                                     </p>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <!--flex知识end-->
             </div>
-            <!--right end-->
+            <!--left end-->
+             <!--right start-->
+             <div class="col-sm-3">
+                 <div class="row conr">
+                     <!--new channel start-->
+                     <div class="col-sm-12">
+                         <div class="panel panel-default">
+                             <div class="panel-body box">
+                                 <h5 class="title-1">{$CATEGORYS[19][catname]}<a href="{$CATEGORYS[19][url]}" class="more">更多>></a></h5>
+                                     <!--div class="title01">
+                                         <div class="weather">
+                                             <iframe width="160" scrolling="no" height="20" frameborder="0" allowtransparency="true"
+                                                     src="http://i.tianqi.com/index.php?c=code&id=1&icon=4&py=taiyuan&wind=1&num=1"></iframe>
+                                         </div>
+                                     </div-->
+                                 <div class="tab-content01">
+                                     <ul>
+                                         {pc:content action="lists" catid="19" num="1" order="id" cache="3600"}
+                                         {loop $data $r}
+                                         <h1><a href="{$r[url]}" title="{$r[title]}" target="_blank">{str_cut($r[title],25)}</a></h1>
+                                         {/loop}
+                                         {/pc}
+
+                                         {pc:content action="lists" catid="19" num="8" start="1" order="id" cache="3600"}
+                                         {loop $data $r}
+                                         <li><span class="time">{date("m-d",$r[inputtime])}</span><a href="{$r[url]}"
+                                                                                                     title="{$r[title]}"
+                                                                                                     target="_blank">{$r[title]}</a>
+                                         </li>
+                                         {/loop}
+                                         {/pc}
+                                     </ul>
+                                 </div>
+
+                             </div><!---->
+                         </div>
+                     </div>
+                     <!--new channel end-->
+                     <!--排行榜 start-->
+                     <div class="col-sm-12">
+                         <div class="panel panel-default">
+                             <div class="panel-body box">
+                                 <h5 class="title-1">排行榜</h5>
+                             </div>
+                         </div>
+                     </div>
+                     <!--排行榜 start-->
+
+                     <!--专题 start-->
+                     <div class="col-sm-12">
+                         <div class="panel panel-default">
+                             <div class="panel-body box">
+                                 <h5 class="title-1">专题</h5>
+                             </div>
+                         </div>
+                     </div>
+                     <!--专题 start-->
+
+                     <!--关注我们 start-->
+                     <div class="col-sm-12">
+                         <div class="panel panel-default">
+                             <div class="panel-body box">
+                                 <div class="thumbnail">
+                                     <img src="{IMG_PATH}JinMa/weixin/weixin.jpg" alt="金码之家" height="258" width="258">
+                                     <div class="caption">
+                                         <h3>微信关注我们</h3>
+                                         <p class="note">专业分享最新IT技术、文章的知识乐园。</p>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <!--关注我们 start-->
+                 </div>
+             </div>
+             <!--right end-->
         </div>
         <!--row end-->
     </div>
