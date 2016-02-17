@@ -41,11 +41,7 @@
 						</div>
 				   <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
 					<?php echo runhook('glogal_header')?>
-					<script type="text/javascript">
-						$(function(){
-								startmarquee('announ',22,1,500,3000);
-						})
-					</script>
+
 					</div>
 				    
 					<!--登录/注册-->
@@ -195,6 +191,14 @@
 <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 
+<script type="text/javascript" charset="utf-8" src="<?php echo JS_PATH;?>a.js"></script>
+
+<script type="text/javascript" src="<?php echo JS_PATH;?>shCore.js"></script>
+<script type="text/javascript" src="<?php echo JS_PATH;?>shAutoloader.js"></script>
+<script src="<?php echo JS_PATH;?>version.js" charset="UTF-8" type="text/javascript"></script>
+<script src="<?php echo JS_PATH;?>push.js"></script>
+<script src="<?php echo JS_PATH;?>share.js"></script>
+<link href="http://changyan.itc.cn/css/plugin/emoji.css" type="text/css" rel="stylesheet">
 
 <script type="text/javascript">
 
@@ -211,3 +215,8 @@
 	});
 </script>
 
+<script type="text/javascript">
+	$(function(){
+		startmarquee('announ',22,1,500,3000);
+	})
+</script>

@@ -1,116 +1,116 @@
-{template "content","header"}
+<?php defined('IN_PHPCMS') or exit('No permission resources.'); ?><?php include template("content","header"); ?>
 <div class="context">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-9">
 				<div class="col-left">
 					<div class="crumbs">
-						<a href="{siteurl($siteid)}">首页</a><span> &gt; </span>{catpos($catid)} {$title}
+						<a href="<?php echo siteurl($siteid);?>">首页</a><span> &gt; </span><?php echo catpos($catid);?> <?php echo $title;?>
 					</div>
 					<div class="panel panel-default" id="Article">
 						<div class="panel-body" >
-							<p class="text-center article-title"><a>{$title}</a></p>
+							<p class="text-center article-title"><a><?php echo $title;?></a></p>
 							<div class="text-center">
 								<ul class="list-inline">
-									<li>日期：{$inputtime}</li>
-									<li>来源：{$copyfrom}</li>
+									<li>日期：<?php echo $inputtime;?></li>
+									<li>来源：<?php echo $copyfrom;?></li>
 									<!--<li>评论：<a href="#comment_iframe" id="comment">0</a> </li>-->
 									<li>点击：<span id="hits"></span></li>
 								</ul>
 							</div>
 							<div class="showContext">
-									<!--{if $description}<div class="summary" >{$description}</div>{/if}-->
-									{if $allow_visitor==1}
-									{$content}
+									<!--<?php if($description) { ?><div class="summary" ><?php echo $description;?></div><?php } ?>-->
+									<?php if($allow_visitor==1) { ?>
+									<?php echo $content;?>
 									<!--内容关联投票-->
-									{if $voteid}<script language="javascript" src="{APP_PATH}index.php?m=vote&c=index&a=show&action=js&subjectid={$voteid}&type=2"></script>{/if}
+									<?php if($voteid) { ?><script language="javascript" src="<?php echo APP_PATH;?>index.php?m=vote&c=index&a=show&action=js&subjectid=<?php echo $voteid;?>&type=2"></script><?php } ?>
 
-									{else}
-									<CENTER><a href="{APP_PATH}index.php?m=content&c=readpoint&allow_visitor={$allow_visitor}"><font color="red">阅读此信息需要您支付 <B><I>{$readpoint} {if $paytype}元{else}点{/if}</I></B>，点击这里支付</font></a></CENTER>
-									{/if}
+									<?php } else { ?>
+									<CENTER><a href="<?php echo APP_PATH;?>index.php?m=content&c=readpoint&allow_visitor=<?php echo $allow_visitor;?>"><font color="red">阅读此信息需要您支付 <B><I><?php echo $readpoint;?> <?php if($paytype) { ?>元<?php } else { ?>点<?php } ?></I></B>，点击这里支付</font></a></CENTER>
+									<?php } ?>
 
-									{if $titles}
+									<?php if($titles) { ?>
 									<fieldset>
 										<legend class="f14">本文导航</legend>
 										<ul class="list blue row-2">
-											{loop $titles $r}
-											<li>{$n}、<a href="{$r[url]}">{$r[title]}</a></li>
-											{/loop}
+											<?php $n=1;if(is_array($titles)) foreach($titles AS $r) { ?>
+											<li><?php echo $n;?>、<a href="<?php echo $r['url'];?>"><?php echo $r['title'];?></a></li>
+											<?php $n++;}unset($n); ?>
 										</ul>
 									</fieldset>
-									{/if}
+									<?php } ?>
 
-									<div id="pages" class="text-c">{$pages}</div>
+									<div id="pages" class="text-c"><?php echo $pages;?></div>
 								</div><!--showContext end-->
 							<!--share start-->
 							<div data-bd-bind="1455502637003" class="bdsharebuttonbox bdshare-button-style1-16"><a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone">QQ空间</a><a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina">新浪微博</a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq">腾讯微博</a><a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren">人人网</a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin">微信</a><a href="#" class="bds_more" data-cmd="more">分享到：</a></div>
 								<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 								<!--span id='favorite'>
-									<a href="javascript:;" onclick="add_favorite('{addslashes($title)}');" class="t6">收藏</a>
+									<a href="javascript:;" onclick="add_favorite('<?php echo addslashes($title);?>');" class="t6">收藏</a>
 								</span-->
 							<div><!--share end-->
 							<!--相关热词搜索 start-->
 							<p style="margin-bottom:10px">
-								<strong>相关热词搜索：</strong>{loop $keywords $keyword}<a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" class="blue">{$keyword}</a> 	{/loop}
+								<strong>相关热词搜索：</strong><?php $n=1;if(is_array($keywords)) foreach($keywords AS $keyword) { ?><a href="<?php echo APP_PATH;?>index.php?m=content&c=tag&a=lists&tag=<?php echo urlencode($keyword);?>" class="blue"><?php echo $keyword;?></a> 	<?php $n++;}unset($n); ?>
 							</p><!--相关热词搜索 end-->
 							<!--声明 start-->
 							<div class="alert alert-danger" role="alert">
 
 								除非特别声明，金码之家均为原创或投稿报道，转载请注明作者及原文链接
-								<p>原文地址：<a href="http://www.jinmazj.net/it/37.html" alt="{$title}">http://www.jinmazj.net/it/37.html</a></p>
+								<p>原文地址：<a href="http://www.jinmazj.net/it/37.html" alt="<?php echo $title;?>">http://www.jinmazj.net/it/37.html</a></p>
 							</div><!--声明 end-->
 							<p class="f14">
-								<strong>上一篇：</strong><a href="{$previous_page[url]}">{$previous_page[title]}</a><br />
-								<strong>下一篇：</strong><a href="{$next_page[url]}">{$next_page[title]}</a>
+								<strong>上一篇：</strong><a href="<?php echo $previous_page['url'];?>"><?php echo $previous_page['title'];?></a><br />
+								<strong>下一篇：</strong><a href="<?php echo $next_page['url'];?>"><?php echo $next_page['title'];?></a>
 							</p>
 							<div class="bk10"></div>
-					   		<!--{if $allow_comment && module_exists('comment')}
-					   		<iframe src="{APP_PATH}index.php?m=comment&c=index&a=init&commentid={id_encode("content_$catid",$id,$siteid)}&iframe=1" width="100%" height="100%" id="comment_iframe" frameborder="0" scrolling="no"></iframe>-->
+					   		<!--<?php if($allow_comment && module_exists('comment')) { ?>
+					   		<iframe src="<?php echo APP_PATH;?>index.php?m=comment&c=index&a=init&commentid=<?php echo id_encode("content_$catid",$id,$siteid);?>&iframe=1" width="100%" height="100%" id="comment_iframe" frameborder="0" scrolling="no"></iframe>-->
 					  <!--<div class="box">
 								<h5>评论排行</h5>
-								 {pc:comment action="bang" siteid="$siteid" cache="3600"}
+								 <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"comment\" data=\"op=comment&tag_md5=9eeaba0a57bcf88c1b4779f4dc232d7a&action=bang&siteid=%24siteid&cache=3600\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$tag_cache_name = md5(implode('&',array('siteid'=>$siteid,)).'9eeaba0a57bcf88c1b4779f4dc232d7a');if(!$data = tpl_cache($tag_cache_name,3600)){$comment_tag = pc_base::load_app_class("comment_tag", "comment");if (method_exists($comment_tag, 'bang')) {$data = $comment_tag->bang(array('siteid'=>$siteid,'limit'=>'20',));}if(!empty($data)){setcache($tag_cache_name, $data, 'tpl_data');}}?>
 								<ul class="content list blue f14 row-2">
-								{loop $data $r}
-									<li>·<a href="{$r[url]}" target="_blank">{str_cut($r[title], 40)}</a><span>({$r[total]})</span></li>
-									{/loop}
+								<?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
+									<li>·<a href="<?php echo $r['url'];?>" target="_blank"><?php echo str_cut($r[title], 40);?></a><span>(<?php echo $r['total'];?>)</span></li>
+									<?php $n++;}unset($n); ?>
 								</ul>
-								{/pc}
+								<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
 						</div>
-						{/if}
+						<?php } ?>
 				  </div>-->
 					<!--<div class="col-auto">
 						<div class="box">
 							<h5 class="title-2">频道总排行</h5>
 							<ul class="content digg">
-							{pc:content  action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
-								{loop $data $r}
-									<li><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r[title], 28, '')}</a></li>
-								{/loop}
-							{/pc}
+							<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=58900d29a2d86f6669bfff23ba8fcaf2&action=hits&catid=%24catid&num=10&order=views+DESC&cache=3600\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$tag_cache_name = md5(implode('&',array('catid'=>$catid,'order'=>'views DESC',)).'58900d29a2d86f6669bfff23ba8fcaf2');if(!$data = tpl_cache($tag_cache_name,3600)){$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'hits')) {$data = $content_tag->hits(array('catid'=>$catid,'order'=>'views DESC','limit'=>'10',));}if(!empty($data)){setcache($tag_cache_name, $data, 'tpl_data');}}?>
+								<?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
+									<li><a href="<?php echo $r['url'];?>" target="_blank" title="<?php echo $r['title'];?>"><?php echo str_cut($r[title], 28, '');?></a></li>
+								<?php $n++;}unset($n); ?>
+							<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
 							</ul>
 						</div>
 						<div class="bk10"></div>
 						<div class="box">
 							<h5 class="title-2">频道本月排行</h5>
 							<ul class="content rank">
-							{pc:content action="hits" catid="$catid" num="10" order="monthviews DESC" cache="3600"}
-								{loop $data $r}
-								<li><span>{number_format($r[monthviews])}</span><a href="{$r[url]}"{title_style($r[style])} class="title" title="{$r[title]}">{str_cut($r[title],56,'...')}</a></li>
-								{/loop}
-							{/pc}
+							<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=d09a3bdd996817c252fccd081b70bebc&action=hits&catid=%24catid&num=10&order=monthviews+DESC&cache=3600\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$tag_cache_name = md5(implode('&',array('catid'=>$catid,'order'=>'monthviews DESC',)).'d09a3bdd996817c252fccd081b70bebc');if(!$data = tpl_cache($tag_cache_name,3600)){$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'hits')) {$data = $content_tag->hits(array('catid'=>$catid,'order'=>'monthviews DESC','limit'=>'10',));}if(!empty($data)){setcache($tag_cache_name, $data, 'tpl_data');}}?>
+								<?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
+								<li><span><?php echo number_format($r[monthviews]);?></span><a href="<?php echo $r['url'];?>"<?php echo title_style($r[style]);?> class="title" title="<?php echo $r['title'];?>"><?php echo str_cut($r[title],56,'...');?></a></li>
+								<?php $n++;}unset($n); ?>
+							<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
 							</ul>
 						</div>
 					</div>-->
-							<div  id="cyEmoji" role="cylabs" data-use="emoji" sourceid="{id_encode("content_$catid",$id,$siteid)}">
+							<div  id="cyEmoji" role="cylabs" data-use="emoji" sourceid="<?php echo id_encode("content_$catid",$id,$siteid);?>">
 								<div class="cy-wrapper">
 									<div class="emoji-tip">您看完此新闻的心情是</div>
-									{if module_exists('mood')}<script type="text/javascript" src="{APP_PATH}index.php?m=mood&c=index&a=init&id={id_encode($catid,$id,$siteid)}"></script>{/if}
+									<?php if(module_exists('mood')) { ?><script type="text/javascript" src="<?php echo APP_PATH;?>index.php?m=mood&c=index&a=init&id=<?php echo id_encode($catid,$id,$siteid);?>"></script><?php } ?>
 
 								</div>
 							</div>
 
-							<div id="SOHUCS" sid="{id_encode("content_$catid",$id,$siteid)}"></div>
-							<script charset="utf-8" type="text/javascript" src="{JS_PATH}changyan.js"></script>
+							<div id="SOHUCS" sid="<?php echo id_encode("content_$catid",$id,$siteid);?>"></div>
+							<script charset="utf-8" type="text/javascript" src="<?php echo JS_PATH;?>changyan.js"></script>
 					</div><!--panel panel-default end-->
 				</div><!--col-left end-->
 			</div><!--col-sm-9 end-->
@@ -126,7 +126,7 @@
 		var keywords = $(obj).text();
 		var offset = $(obj).offset();
 		var jsonitem = '';
-		$.getJSON("{APP_PATH}index.php?m=content&c=index&a=json_list&type=keyword&modelid={$modelid}&id={$id}&keywords="+encodeURIComponent(keywords),
+		$.getJSON("<?php echo APP_PATH;?>index.php?m=content&c=index&a=json_list&type=keyword&modelid=<?php echo $modelid;?>&id=<?php echo $id;?>&keywords="+encodeURIComponent(keywords),
 				function(data){
 				var j = 1;
 				var string = "<div class='point key-float'><div style='position:relative'><div class='arro'></div>";
@@ -154,7 +154,7 @@
 	}
 
 	function add_favorite(title) {
-		$.getJSON('{APP_PATH}api.php?op=add_favorite&title='+encodeURIComponent(title)+'&url='+encodeURIComponent(location.href)+'&'+Math.random()+'&callback=?', function(data){
+		$.getJSON('<?php echo APP_PATH;?>api.php?op=add_favorite&title='+encodeURIComponent(title)+'&url='+encodeURIComponent(location.href)+'&'+Math.random()+'&callback=?', function(data){
 			if(data.status==1)	{
 				$("#favorite").html('收藏成功');
 			} else {
@@ -164,8 +164,8 @@
 	}
 
 $(function(){
-   $('#Article .showContext  img').LoadImage(true, 660, 660,'{IMG_PATH}s_nopic.gif');
-	//$('#Article .content img').LoadImage(true, 660, 660,'{IMG_PATH}s_nopic.gif');
+   $('#Article .showContext  img').LoadImage(true, 660, 660,'<?php echo IMG_PATH;?>s_nopic.gif');
+	//$('#Article .content img').LoadImage(true, 660, 660,'<?php echo IMG_PATH;?>s_nopic.gif');
 })
 //-->
 </script>
@@ -174,7 +174,6 @@ $(function(){
 		//appid: 'cysfkj6cn',
 		//conf: 'prod_63bdd7c9d91eb7e55f967cddfa4f0e8a'
 	//});
-	//自适应评论
 	(function(){
 		var appid = 'cysfkj6cn';
 		var conf = 'prod_63bdd7c9d91eb7e55f967cddfa4f0e8a';
@@ -215,7 +214,7 @@ $(function(){
 	SyntaxHighlighter.all();
 
 </script>-->
-<script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+<script language="JavaScript" src="<?php echo APP_PATH;?>api.php?op=count&id=<?php echo $id;?>&modelid=<?php echo $modelid;?>"></script>
 
 
 
@@ -230,4 +229,4 @@ $(function(){
 	<div class="bdimgshare-bg"></div>
 	<div class="bdimgshare-content bdsharebuttonbox bdshare-button-style0-16"><label class="bdimgshare-lbl">分享到：</label><a href="#" onclick="return false;" class="bds_qzone" data-cmd="qzone" hidefocus=""></a><a href="#" onclick="return false;" class="bds_tsina" data-cmd="tsina" hidefocus=""></a><a href="#" onclick="return false;" class="bds_tqq" data-cmd="tqq" hidefocus=""></a><a href="#" onclick="return false;" class="bds_renren" data-cmd="renren" hidefocus=""></a><a href="#" onclick="return false;" class="bds_weixin" data-cmd="weixin" hidefocus=""></a><a href="#" onclick="return false;" class="bds_more" data-cmd="more" hidefocus=""></a></div>
 </div>
-{template "content","footer"}
+<?php include template("content","footer"); ?>
