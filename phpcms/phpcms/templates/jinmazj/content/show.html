@@ -1,4 +1,5 @@
 {template "content","header"}
+<body >
 <div class="context">
 	<div class="container">
 		<div class="row">
@@ -57,7 +58,7 @@
 							<div class="alert alert-danger" role="alert">
 
 								除非特别声明，金码之家均为原创或投稿报道，转载请注明作者及原文链接
-								<p>原文地址：<a href="http://www.jinmazj.net/it/37.html" alt="{$title}">http://www.jinmazj.net/it/37.html</a></p>
+								<p>原文地址：<a href="{go($catid,$id)}" alt="{$title}">{go($catid,$id)}</a></p>
 							</div><!--声明 end-->
 							<p class="f14">
 								<strong>上一篇：</strong><a href="{$previous_page[url]}">{$previous_page[title]}</a><br />
@@ -66,42 +67,42 @@
 							<div class="bk10"></div>
 					   		<!--{if $allow_comment && module_exists('comment')}
 					   		<iframe src="{APP_PATH}index.php?m=comment&c=index&a=init&commentid={id_encode("content_$catid",$id,$siteid)}&iframe=1" width="100%" height="100%" id="comment_iframe" frameborder="0" scrolling="no"></iframe>-->
-					  <!--<div class="box">
-								<h5>评论排行</h5>
-								 {pc:comment action="bang" siteid="$siteid" cache="3600"}
-								<ul class="content list blue f14 row-2">
-								{loop $data $r}
-									<li>·<a href="{$r[url]}" target="_blank">{str_cut($r[title], 40)}</a><span>({$r[total]})</span></li>
-									{/loop}
-								</ul>
-								{/pc}
-						</div>
-						{/if}
-				  </div>-->
-					<!--<div class="col-auto">
-						<div class="box">
-							<h5 class="title-2">频道总排行</h5>
-							<ul class="content digg">
-							{pc:content  action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
-								{loop $data $r}
-									<li><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r[title], 28, '')}</a></li>
-								{/loop}
-							{/pc}
-							</ul>
-						</div>
-						<div class="bk10"></div>
-						<div class="box">
-							<h5 class="title-2">频道本月排行</h5>
-							<ul class="content rank">
-							{pc:content action="hits" catid="$catid" num="10" order="monthviews DESC" cache="3600"}
-								{loop $data $r}
-								<li><span>{number_format($r[monthviews])}</span><a href="{$r[url]}"{title_style($r[style])} class="title" title="{$r[title]}">{str_cut($r[title],56,'...')}</a></li>
-								{/loop}
-							{/pc}
-							</ul>
-						</div>
-					</div>-->
-							<div  id="cyEmoji" role="cylabs" data-use="emoji" sourceid="{id_encode("content_$catid",$id,$siteid)}">
+						    <!--<div class="box">
+									<h5>评论排行</h5>
+									 {pc:comment action="bang" siteid="$siteid" cache="3600"}
+									<ul class="content list blue f14 row-2">
+									{loop $data $r}
+										<li>·<a href="{$r[url]}" target="_blank">{str_cut($r[title], 40)}</a><span>({$r[total]})</span></li>
+										{/loop}
+									</ul>
+									{/pc}
+							</div>
+							{/if}
+					  </div>-->
+							<!--<div class="col-auto">
+								<div class="box">
+									<h5 class="title-2">频道总排行</h5>
+									<ul class="content digg">
+									{pc:content  action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
+										{loop $data $r}
+											<li><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r[title], 28, '')}</a></li>
+										{/loop}
+									{/pc}
+									</ul>
+								</div>
+								<div class="bk10"></div>
+								<div class="box">
+									<h5 class="title-2">频道本月排行</h5>
+									<ul class="content rank">
+									{pc:content action="hits" catid="$catid" num="10" order="monthviews DESC" cache="3600"}
+										{loop $data $r}
+										<li><span>{number_format($r[monthviews])}</span><a href="{$r[url]}"{title_style($r[style])} class="title" title="{$r[title]}">{str_cut($r[title],56,'...')}</a></li>
+										{/loop}
+									{/pc}
+									</ul>
+								</div>
+							</div>-->
+							<div id="cyEmoji" role="cylabs" data-use="emoji" sourceid="{id_encode("content_$catid",$id,$siteid)}">
 								<div class="cy-wrapper">
 									<div class="emoji-tip">您看完此新闻的心情是</div>
 									{if module_exists('mood')}<script type="text/javascript" src="{APP_PATH}index.php?m=mood&c=index&a=init&id={id_encode($catid,$id,$siteid)}"></script>{/if}
@@ -109,16 +110,80 @@
 								</div>
 							</div>
 
-							<div id="SOHUCS" sid="{id_encode("content_$catid",$id,$siteid)}"></div>
-							<script charset="utf-8" type="text/javascript" src="{JS_PATH}changyan.js"></script>
+							<div id="SOHUCS" sid="{id_encode("content_$catid",$id,$siteid)}">
+
+						    </div>
+
 					</div><!--panel panel-default end-->
 				</div><!--col-left end-->
 			</div><!--col-sm-9 end-->
+			</div></div><!--左侧面板结束标记-->
+			<div id="#leftTool" class="col-sm-3">
+				<div class="row conr">
+					<div class="col-sm-12">
+						<!-- Nav tabs -->
+						<ul id="o_nav"  class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">本周点击排行</a></li>
+							<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">本月点击排行</a></li>
+
+						</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="home">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										{pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}
+										<ul >
+											{php $i=1;}
+											{loop $data $r}
+											<li><em>{$i}</em><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
+											{php $i++}
+											{/loop}
+										</ul>
+										{/pc}
+									</div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="profile">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										{pc:content action="hits" catid="$catid" num="10" order="monthviews DESC" cache="3600"}
+										<ul >
+											{loop $data $r}
+											<li><em>{number_format($r[monthviews])}</em><a href="{$r[url]}" target="_blank"  title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
+
+											{/loop}
+										</ul>
+										{/pc}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--关注我们 start-->
+					<div class="col-sm-12">
+						<div class="panel panel-default">
+							<div class="panel-body box">
+								<div class="thumbnail">
+									<img src="{IMG_PATH}JinMa/weixin/weixin.jpg" alt="金码之家" height="258" width="258">
+									<div class="caption">
+										<h3>微信关注我们</h3>
+										<p class="note">专业分享最新IT技术、文章的知识乐园。</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--关注我们 start-->
+				</div>
+			</div><!--col-sm-3 end-->
 		</div><!--row end-->
 	</div><!--container end-->
 </div><!--context end-->
 
 
+{template "content","footer"}
 
 <script type="text/javascript">
 <!--
@@ -215,19 +280,12 @@ $(function(){
 	SyntaxHighlighter.all();
 
 </script>-->
+
+<script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cysfkj6cn"></script>
+<script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
 <script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
+<script type="text/javascript" src="{JS_PATH}shCore.js"></script>
+<script type="text/javascript" src="{JS_PATH}shAutoloader.js"></script>
 
-
-
-<iframe id="bdSharePopup_selectshare1455502637009bg" class="bdselect_share_bg" style="display:none;" frameborder="0"></iframe>
-<div data-bd-bind="1455502637009" id="bdSharePopup_selectshare1455502637009box" style="display:none;" share-type="selectshare" class="bdselect_share_box">
-	<div class="selectshare-mod-triangle"><div class="triangle-border"></div><div class="triangle-inset"></div>
-	</div><div class="bdselect_share_head"><span>分享到</span><a href="http://www.baidu.com/s?wd=&amp;tn=SE_hldp08010_vurs2xrp" class="bdselect_share_dialog_search" target="_blank"><i class="bdselect_share_dialog_search_i"></i>
-	<span class="bdselect_share_dialog_search_span">百度一下</span></a><a class="bdselect_share_dialog_close"></a></div>
-	<div class="bdselect_share_content"><ul class="bdselect_share_list bdshare-button-style1-16">
-		<div class="bdselect_share_partners"></div><a href="#" class="bds_more" data-cmd="more"></a></ul></div>
-</div><div data-bd-bind="1455502637011" id="bdimgshare_1455502637011" class="sr-bdimgshare sr-bdimgshare-list sr-bdimgshare-16 sr-bdimgshare-black" style="height:36px;line-height:26px;font-size:12px;width:autopx;display:none;">
-	<div class="bdimgshare-bg"></div>
-	<div class="bdimgshare-content bdsharebuttonbox bdshare-button-style0-16"><label class="bdimgshare-lbl">分享到：</label><a href="#" onclick="return false;" class="bds_qzone" data-cmd="qzone" hidefocus=""></a><a href="#" onclick="return false;" class="bds_tsina" data-cmd="tsina" hidefocus=""></a><a href="#" onclick="return false;" class="bds_tqq" data-cmd="tqq" hidefocus=""></a><a href="#" onclick="return false;" class="bds_renren" data-cmd="renren" hidefocus=""></a><a href="#" onclick="return false;" class="bds_weixin" data-cmd="weixin" hidefocus=""></a><a href="#" onclick="return false;" class="bds_more" data-cmd="more" hidefocus=""></a></div>
-</div>
-{template "content","footer"}
+</body>
+</html>

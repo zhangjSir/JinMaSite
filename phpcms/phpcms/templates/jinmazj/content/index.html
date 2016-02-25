@@ -101,29 +101,65 @@
                     <div class="bk10"></div>
                     <div class="panel panel-default" >
                         <div class="panel-body box">
-                            <h5 class="title-1">java知识专栏<a href="{APP_PATH}index.php?m=special&c=index&a=special&siteid={$siteid}" class="more">更多>></a></h5>
+                            <h5 class="title-1">{$CATEGORYS[7][catname]}专栏<a href="{$CATEGORYS[7][url]}" class="more">更多>></a></h5>
+                            {pc:get  sql="SELECT a.id as id,
+                                                a.title as title,a.description as description
+                                                ,a.inputtime as inputtime
+                                                ,a.url as url
+                                                ,a.thumb as thumb
+                                                ,a.keywords as keywords
+                                                ,c.catname as catname
+                                                ,c.catid as catid
+                                            FROM
+                                                v9_news a,
+                                                v9_news_data b,
+                                                v9_category c
+                                             WHERE
+                                                a.id = b.id
+                                                AND a.catid = c.catid AND C.catid='7'
+                                                ORDER BY updatetime DESC"   cache="3600" page="$_GET['page']" return="data" num="3"}
+                            {php $categorys = getcache('category_content_'.$siteid,'commons');}
+
+                            {loop $data $r}
+
+                            {php $category = $categorys[$r[catid]];}
+
+                            {php $modelid = $category['modelid'];}
+
+                            {php $db = pc_base::load_model('hits_model');   $_r = $db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views];}
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <a href="http://www.manzj.net/it/37.html" target="_blank" class="thumbnail">
-                                        <img alt="30岁左右的程序员，你迷惘了吗?[转载]" class="img-responsive" src="%E7%A0%81%E5%86%9C%E4%B9%8B%E5%AE%B6-www.manzj.net_files/20160121041159419.jpg">
+                                    <a href="{$r[url]}" target="_blank" class="thumbnail">
+                                        {if $r[thumb]}
+                                        <img alt="{$r[title]}"  class="img-responsive" src="{thumb($r['thumb'],150,220)}"  />
+                                        {else}
+                                        <img alt="{$r[title]}"  class="img-responsive" data-src="holder.js/171x117/text:金码之家" alt="金码之家"/>
+                                        {/if}
                                     </a>
+
                                 </div>
                                 <div class="col-sm-9">
-                                    <h4 class="h4o"><a href="http://www.manzj.net/it/37.html" target="_blank">30岁左右的程序员，你迷惘了吗?[转载]</a></h4>
+                                    <h4 class="h4o"><a href="{$r[url]}" target="_blank" >{$r[title]}</a></h4>
                                     <ul class="list-inline">
-                                        <li><i class="fa fa-clock-o fa-fw"></i> 2016-01-21</li>
-                                        <li><i class="fa fa-eye fa-fw"></i> 点击量：45</li>
-                                        <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id="sourceId::37" class="cy_cmt_count">11</span></li>
+                                        <li><i class="fa fa-clock-o fa-fw"></i> 发布时间：{date('Y-m-d',$r[inputtime])}</li>
+                                        <li><i class="fa fa-eye fa-fw"></i> 点击量：{$views}</li>
+                                        <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id = "sourceId::{$r[id]}" class = "cy_cmt_count" ></span></li>
                                     </ul>
                                     <p class="note">
-                                        [前言]　 本文写给30左右还奋斗于编写岗位的程序员们，因为在这个年龄段，可能技能、岗位、收入都已相对稳定，但同时，大家或多或少有些不   ...
+                                        {$r[description]}...
                                     </p>
-                                    <p>
+                                    <p >
                                         <span class="label label-info ">标签：</span>
-                                        <a href="http://www.manzj.net/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=%E7%A8%8B%E5%BA%8F%E5%91%98">程序员</a>
+                                        {php $keywords = explode(' ',$r[keywords]);}
+                                        {loop $keywords $keyword}
+                                        <a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" >{$keyword}</a>
+                                        {/loop}
                                     </p>
                                 </div>
                             </div>
+                            <div class="bk10"></div>
+                            {/loop}
+                            {/pc}
                         </div>
                     </div>
                 </div>
@@ -134,29 +170,65 @@
                     <div class="bk10"></div>
                     <div class="panel panel-default" >
                         <div class="panel-body box">
-                            <h5 class="title-1">.net知识专栏<a href="{APP_PATH}index.php?m=special&c=index&a=special&siteid={$siteid}" class="more">更多>></a></h5>
+                            {pc:get  sql="SELECT a.id as id,
+                            a.title as title,a.description as description
+                            ,a.inputtime as inputtime
+                            ,a.url as url
+                            ,a.thumb as thumb
+                            ,a.keywords as keywords
+                            ,c.catname as catname
+                            ,c.catid as catid
+                            FROM
+                            v9_news a,
+                            v9_news_data b,
+                            v9_category c
+                            WHERE
+                            a.id = b.id
+                            AND a.catid = c.catid AND C.catid='8'
+                            ORDER BY updatetime DESC"   cache="3600" page="$_GET['page']" return="data" num="3"}
+                            {php $categorys = getcache('category_content_'.$siteid,'commons');}
+
+                            {loop $data $r}
+
+                            {php $category = $categorys[$r[catid]];}
+
+                            {php $modelid = $category['modelid'];}
+
+                            {php $db = pc_base::load_model('hits_model');   $_r = $db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views];}
+                            <h5 class="title-1">{$CATEGORYS[8][catname]}专栏<a href="{$CATEGORYS[8][url]}" class="more">更多>></a></h5>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <a href="http://www.manzj.net/it/37.html" target="_blank" class="thumbnail">
-                                        <img alt="30岁左右的程序员，你迷惘了吗?[转载]" class="img-responsive" src="%E7%A0%81%E5%86%9C%E4%B9%8B%E5%AE%B6-www.manzj.net_files/20160121041159419.jpg">
+                                    <a href="{$r[url]}" target="_blank" class="thumbnail">
+                                        {if $r[thumb]}
+                                        <img alt="{$r[title]}"  class="img-responsive" src="{thumb($r['thumb'],150,220)}"  />
+                                        {else}
+                                        <img alt="{$r[title]}"  class="img-responsive" data-src="holder.js/171x117/text:金码之家" alt="金码之家"/>
+                                        {/if}
                                     </a>
+
                                 </div>
                                 <div class="col-sm-9">
-                                    <h4 class="h4o"><a href="http://www.manzj.net/it/37.html" target="_blank">30岁左右的程序员，你迷惘了吗?[转载]</a></h4>
+                                    <h4 class="h4o"><a href="{$r[url]}" target="_blank" >{$r[title]}</a></h4>
                                     <ul class="list-inline">
-                                        <li><i class="fa fa-clock-o fa-fw"></i> 2016-01-21</li>
-                                        <li><i class="fa fa-eye fa-fw"></i> 点击量：45</li>
-                                        <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id="sourceId::37" class="cy_cmt_count">11</span></li>
+                                        <li><i class="fa fa-clock-o fa-fw"></i> 发布时间：{date('Y-m-d',$r[inputtime])}</li>
+                                        <li><i class="fa fa-eye fa-fw"></i> 点击量：{$views}</li>
+                                        <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id = "sourceId::{$r[id]}" class = "cy_cmt_count" ></span></li>
                                     </ul>
                                     <p class="note">
-                                        [前言]　 本文写给30左右还奋斗于编写岗位的程序员们，因为在这个年龄段，可能技能、岗位、收入都已相对稳定，但同时，大家或多或少有些不   ...
+                                        {$r[description]}...
                                     </p>
-                                    <p>
+                                    <p >
                                         <span class="label label-info ">标签：</span>
-                                        <a href="http://www.manzj.net/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=%E7%A8%8B%E5%BA%8F%E5%91%98">程序员</a>
+                                        {php $keywords = explode(' ',$r[keywords]);}
+                                        {loop $keywords $keyword}
+                                        <a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" >{$keyword}</a>
+                                        {/loop}
                                     </p>
                                 </div>
                             </div>
+                            <div class="bk10"></div>
+                            {/loop}
+                            {/pc}
                         </div>
                     </div>
                 </div>
@@ -167,29 +239,65 @@
                      <div class="bk10"></div>
                      <div class="panel panel-default" >
                          <div class="panel-body box">
-                             <h5 class="title-1">php知识专栏<a href="{APP_PATH}index.php?m=special&c=index&a=special&siteid={$siteid}" class="more">更多>></a></h5>
+                             {pc:get  sql="SELECT a.id as id,
+                             a.title as title,a.description as description
+                             ,a.inputtime as inputtime
+                             ,a.url as url
+                             ,a.thumb as thumb
+                             ,a.keywords as keywords
+                             ,c.catname as catname
+                             ,c.catid as catid
+                             FROM
+                             v9_news a,
+                             v9_news_data b,
+                             v9_category c
+                             WHERE
+                             a.id = b.id
+                             AND a.catid = c.catid AND C.catid='9'
+                             ORDER BY updatetime DESC"   cache="3600" page="$_GET['page']" return="data" num="3"}
+                             {php $categorys = getcache('category_content_'.$siteid,'commons');}
+
+                             {loop $data $r}
+
+                             {php $category = $categorys[$r[catid]];}
+
+                             {php $modelid = $category['modelid'];}
+
+                             {php $db = pc_base::load_model('hits_model');   $_r = $db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views];}
+                             <h5 class="title-1">{$CATEGORYS[9][catname]}专栏<a href="{$CATEGORYS[9][url]}" class="more">更多>></a></h5>
                              <div class="row">
                                  <div class="col-sm-3">
-                                     <a href="http://www.manzj.net/it/37.html" target="_blank" class="thumbnail">
-                                         <img alt="30岁左右的程序员，你迷惘了吗?[转载]" class="img-responsive" src="%E7%A0%81%E5%86%9C%E4%B9%8B%E5%AE%B6-www.manzj.net_files/20160121041159419.jpg">
+                                     <a href="{$r[url]}" target="_blank" class="thumbnail">
+                                         {if $r[thumb]}
+                                         <img alt="{$r[title]}"  class="img-responsive" src="{thumb($r['thumb'],150,220)}"  />
+                                         {else}
+                                         <img alt="{$r[title]}"  class="img-responsive" data-src="holder.js/171x117/text:金码之家" alt="金码之家"/>
+                                         {/if}
                                      </a>
+
                                  </div>
                                  <div class="col-sm-9">
-                                     <h4 class="h4o"><a href="http://www.manzj.net/it/37.html" target="_blank">30岁左右的程序员，你迷惘了吗?[转载]</a></h4>
+                                     <h4 class="h4o"><a href="{$r[url]}" target="_blank" >{$r[title]}</a></h4>
                                      <ul class="list-inline">
-                                         <li><i class="fa fa-clock-o fa-fw"></i> 2016-01-21</li>
-                                         <li><i class="fa fa-eye fa-fw"></i> 点击量：45</li>
-                                         <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id="sourceId::37" class="cy_cmt_count">11</span></li>
+                                         <li><i class="fa fa-clock-o fa-fw"></i> 发布时间：{date('Y-m-d',$r[inputtime])}</li>
+                                         <li><i class="fa fa-eye fa-fw"></i> 点击量：{$views}</li>
+                                         <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id = "sourceId::{$r[id]}" class = "cy_cmt_count" ></span></li>
                                      </ul>
                                      <p class="note">
-                                         [前言]　 本文写给30左右还奋斗于编写岗位的程序员们，因为在这个年龄段，可能技能、岗位、收入都已相对稳定，但同时，大家或多或少有些不   ...
+                                         {$r[description]}...
                                      </p>
-                                     <p>
+                                     <p >
                                          <span class="label label-info ">标签：</span>
-                                         <a href="http://www.manzj.net/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=%E7%A8%8B%E5%BA%8F%E5%91%98">程序员</a>
+                                         {php $keywords = explode(' ',$r[keywords]);}
+                                         {loop $keywords $keyword}
+                                         <a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" >{$keyword}</a>
+                                         {/loop}
                                      </p>
                                  </div>
                              </div>
+                             <div class="bk10"></div>
+                             {/loop}
+                             {/pc}
                          </div>
                      </div>
                  </div>
@@ -200,29 +308,65 @@
                      <div class="bk10"></div>
                      <div class="panel panel-default" >
                          <div class="panel-body box">
-                             <h5 class="title-1">flex知识专栏<a href="{APP_PATH}index.php?m=special&c=index&a=special&siteid={$siteid}" class="more">更多>></a></h5>
+                             {pc:get  sql="SELECT a.id as id,
+                             a.title as title,a.description as description
+                             ,a.inputtime as inputtime
+                             ,a.url as url
+                             ,a.thumb as thumb
+                             ,a.keywords as keywords
+                             ,c.catname as catname
+                             ,c.catid as catid
+                             FROM
+                             v9_news a,
+                             v9_news_data b,
+                             v9_category c
+                             WHERE
+                             a.id = b.id
+                             AND a.catid = c.catid AND C.catid='21'
+                             ORDER BY updatetime DESC"   cache="3600" page="$_GET['page']" return="data" num="3"}
+                             {php $categorys = getcache('category_content_'.$siteid,'commons');}
+
+                             {loop $data $r}
+
+                             {php $category = $categorys[$r[catid]];}
+
+                             {php $modelid = $category['modelid'];}
+
+                             {php $db = pc_base::load_model('hits_model');   $_r = $db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views];}
+                             <h5 class="title-1">{$CATEGORYS[21][catname]}专栏<a href="{$CATEGORYS[21][url]}" class="more">更多>></a></h5>
                              <div class="row">
                                  <div class="col-sm-3">
-                                     <a href="http://www.manzj.net/it/37.html" target="_blank" class="thumbnail">
-                                         <img alt="30岁左右的程序员，你迷惘了吗?[转载]" class="img-responsive" src="%E7%A0%81%E5%86%9C%E4%B9%8B%E5%AE%B6-www.manzj.net_files/20160121041159419.jpg">
+                                     <a href="{$r[url]}" target="_blank" class="thumbnail">
+                                         {if $r[thumb]}
+                                         <img alt="{$r[title]}"  class="img-responsive" src="{thumb($r['thumb'],150,220)}"  />
+                                         {else}
+                                         <img alt="{$r[title]}"  class="img-responsive" data-src="holder.js/171x117/text:金码之家" alt="金码之家"/>
+                                         {/if}
                                      </a>
+
                                  </div>
                                  <div class="col-sm-9">
-                                     <h4 class="h4o"><a href="http://www.manzj.net/it/37.html" target="_blank">30岁左右的程序员，你迷惘了吗?[转载]</a></h4>
+                                     <h4 class="h4o"><a href="{$r[url]}" target="_blank" >{$r[title]}</a></h4>
                                      <ul class="list-inline">
-                                         <li><i class="fa fa-clock-o fa-fw"></i> 2016-01-21</li>
-                                         <li><i class="fa fa-eye fa-fw"></i> 点击量：45</li>
-                                         <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id="sourceId::37" class="cy_cmt_count">11</span></li>
+                                         <li><i class="fa fa-clock-o fa-fw"></i> 发布时间：{date('Y-m-d',$r[inputtime])}</li>
+                                         <li><i class="fa fa-eye fa-fw"></i> 点击量：{$views}</li>
+                                         <li><i class="fa fa-comments-o fa-fw"></i> 评论：<span id = "sourceId::{$r[id]}" class = "cy_cmt_count" ></span></li>
                                      </ul>
                                      <p class="note">
-                                         [前言]　 本文写给30左右还奋斗于编写岗位的程序员们，因为在这个年龄段，可能技能、岗位、收入都已相对稳定，但同时，大家或多或少有些不   ...
+                                         {$r[description]}...
                                      </p>
-                                     <p>
+                                     <p >
                                          <span class="label label-info ">标签：</span>
-                                         <a href="http://www.manzj.net/index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=%E7%A8%8B%E5%BA%8F%E5%91%98">程序员</a>
+                                         {php $keywords = explode(' ',$r[keywords]);}
+                                         {loop $keywords $keyword}
+                                         <a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" >{$keyword}</a>
+                                         {/loop}
                                      </p>
                                  </div>
                              </div>
+                             <div class="bk10"></div>
+                             {/loop}
+                             {/pc}
                          </div>
                      </div>
                  </div>
@@ -270,8 +414,35 @@
                      <div class="col-sm-12">
                          <div class="panel panel-default">
                              <div class="panel-body box">
-                                 <h5 class="title-1">排行榜</h5>
-                             </div>
+                                 <h5 class="title-1">头条内容排行榜</h5>
+                                 <!-- Tab panes -->
+                                 <div class="tab-content">
+                                     <div role="tabpanel" class="tab-pane active" id="home">
+                                         <div  class="tab-mod   on">
+                                             <div class="rank-mod">
+                                                 {pc:content  action="position" posid="2" order="listorder DESC" num="10"}
+                                                 <ul>
+
+                                                     {php $i=1;}
+                                                     {loop $data $r}
+
+                                                     {if $i <= 3}
+                                                     <li class=" emp">
+                                                         {else}
+                                                     <li>
+                                                         {/if}
+                                                         <span>{$i}</span><a href="{$r[url]}" target="_blank" title="{$r[title]}">{str_cut($r['title'],50,'...')}</a></li>
+                                                     {php $i++;}
+                                                     {/loop}
+
+                                                 </ul>
+                                                 {/pc}
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                              </div>
+
                          </div>
                      </div>
                      <!--排行榜 start-->

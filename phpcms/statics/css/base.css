@@ -93,7 +93,7 @@ ul[class="nav nav-tabs"] {
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
-  background-color: #e74c3c;
+  background-color: #3090e4;
   border-color: #ddd #ddd transparent;
   border-image: none;
   border-style: solid;
@@ -272,7 +272,7 @@ div[class="text-center"] {
   .rank-mod li {
     line-height: 20px; }
   .rank-mod li.emp span {
-    background: #e54724 none repeat scroll 0 0;
+    background: #3090e4 none repeat scroll 0 0;
     color: #fff; }
   .rank-mod ul {
     margin-right: 0px !important; }
