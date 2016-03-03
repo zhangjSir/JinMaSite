@@ -102,7 +102,18 @@
 									</ul>
 								</div>
 							</div>-->
-							<div id="cyEmoji" role="cylabs" data-use="emoji" sourceid="{id_encode("content_$catid",$id,$siteid)}">
+							<!--div id="cyEmoji" role="cylabs" data-use="emoji" sourceid="{id_encode("content_$catid",$id,$siteid)}">
+								<div class="cy-wrapper">
+									<div class="emoji-tip">您看完此新闻的心情是</div>
+									{if module_exists('mood')}<script type="text/javascript" src="{APP_PATH}index.php?m=mood&c=index&a=init&id={id_encode($catid,$id,$siteid)}"></script>{/if}
+
+								</div>
+							</div>
+							$id
+							<div id="SOHUCS" sid="{id_encode("content_$catid",$id,$siteid)}">
+
+						    </div-->
+							<div id="cyEmoji" role="cylabs" data-use="emoji" sourceid="{$id}">
 								<div class="cy-wrapper">
 									<div class="emoji-tip">您看完此新闻的心情是</div>
 									{if module_exists('mood')}<script type="text/javascript" src="{APP_PATH}index.php?m=mood&c=index&a=init&id={id_encode($catid,$id,$siteid)}"></script>{/if}
@@ -110,9 +121,9 @@
 								</div>
 							</div>
 
-							<div id="SOHUCS" sid="{id_encode("content_$catid",$id,$siteid)}">
+							<div id="SOHUCS" sid="{$id}">
 
-						    </div>
+							</div>
 
 					</div><!--panel panel-default end-->
 				</div><!--col-left end-->
@@ -248,44 +259,45 @@ $(function(){
 			window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
 	<!--prod_63bdd7c9d91eb7e55f967cddfa4f0e8a-->
 </script>
-<!--<script type="text/javascript">
-	SyntaxHighlighter.autoloader(
-			'applescript      http://www.manzj.net/statics/js/diy/scripts/shBrushAppleScript.js',
-			'actionscript3 as3    http://www.manzj.net/statics/js/diy/scripts/shBrushAS3.js',
-			'bash shell       http://www.manzj.net/statics/js/diy/scripts/shBrushBash.js',
-			'coldfusion cf      http://www.manzj.net/statics/js/diy/scripts/shBrushColdFusion.js',
-			'cpp c          http://www.manzj.net/statics/js/diy/scripts/shBrushCpp.js',
-			'obj-c objc       http://www.manzj.net/statics/js/diy/scripts/shBrushObjC.js',
-			'c# c-sharp csharp    http://www.manzj.net/statics/js/diy/scripts/shBrushCSharp.js',
-			'css          http://www.manzj.net/statics/js/diy/scripts/shBrushCss.js',
-			'delphi pascal      http://www.manzj.net/statics/js/diy/scripts/shBrushDelphi.js',
-			'diff patch pas     http://www.manzj.net/statics/js/diy/scripts/shBrushDiff.js',
-			'erl erlang       http://www.manzj.net/statics/js/diy/scripts/shBrushErlang.js',
-			'groovy         http://www.manzj.net/statics/js/diy/scripts/shBrushGroovy.js',
-			'haxe hx        http://www.manzj.net/statics/js/diy/scripts/shBrushHaxe.js',
-			'java         http://www.manzj.net/statics/js/diy/scripts/shBrushJava.js',
-			'jfx javafx       http://www.manzj.net/statics/js/diy/scripts/shBrushJavaFX.js',
-			'js jscript javascript  http://www.manzj.net/statics/js/diy/scripts/shBrushJScript.js',
-			'perl pl        http://www.manzj.net/statics/js/diy/scripts/shBrushPerl.js',
-			'php          http://www.manzj.net/statics/js/diy/scripts/shBrushPhp.js',
-			'text plain       http://www.manzj.net/statics/js/diy/scripts/shBrushPlain.js',
-			'py python        http://www.manzj.net/statics/js/diy/scripts/shBrushPython.js',
-			'ruby rails ror rb    http://www.manzj.net/statics/js/diy/scripts/shBrushRuby.js',
-			'scala          http://www.manzj.net/statics/js/diy/scripts/shBrushScala.js',
-			'sql          http://www.manzj.net/statics/js/diy/scripts/shBrushSql.js',
-			'vb vbnet       http://www.manzj.net/statics/js/diy/scripts/shBrushVb.js',
-			'ps powershell      http://www.manzj.net/statics/js/diy/scripts/shBrushPowerShell.js',
-			'xml xhtml xslt html  http://www.manzj.net/statics/js/diy/scripts/shBrushXml.js'
-	);
-	SyntaxHighlighter.all();
-
-</script>-->
 
 <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cysfkj6cn"></script>
 <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js" ></script>
 <script language="JavaScript" src="{APP_PATH}api.php?op=count&id={$id}&modelid={$modelid}"></script>
 <script type="text/javascript" src="{JS_PATH}shCore.js"></script>
 <script type="text/javascript" src="{JS_PATH}shAutoloader.js"></script>
+<script type="text/javascript" src="{JS_PATH}code/code_favorites.js"></script>
+
+<script type="text/javascript">
+	SyntaxHighlighter.autoloader(
+			'applescript      {JS_PATH}scripts/shBrushAppleScript.js',
+			'actionscript3 as3    {JS_PATH}scripts/shBrushAS3.js',
+			'bash shell       {JS_PATH}scripts/shBrushBash.js',
+			'coldfusion cf      {JS_PATH}scripts/shBrushColdFusion.js',
+			'cpp c          {JS_PATH}scripts/shBrushCpp.js',
+			'obj-c objc       {JS_PATH}scripts/shBrushObjC.js',
+			'c# c-sharp csharp    {JS_PATH}scripts/shBrushCSharp.js',
+			'css          {JS_PATH}scripts/shBrushCss.js',
+			'delphi pascal      {JS_PATH}scripts/shBrushDelphi.js',
+			'diff patch pas     {JS_PATH}scripts/shBrushDiff.js',
+			'erl erlang       {JS_PATH}scripts/shBrushErlang.js',
+			'groovy         {JS_PATH}scripts/shBrushGroovy.js',
+			'haxe hx        {JS_PATH}scripts/shBrushHaxe.js',
+			'java         {JS_PATH}scripts/shBrushJava.js',
+			'jfx javafx       {JS_PATH}scripts/shBrushJavaFX.js',
+			'js jscript javascript  {JS_PATH}scripts/shBrushJScript.js',
+			'perl pl        {JS_PATH}scripts/shBrushPerl.js',
+			'php          {JS_PATH}scripts/shBrushPhp.js',
+			'text plain       {JS_PATH}scripts/shBrushPlain.js',
+			'py python        {JS_PATH}scripts/shBrushPython.js',
+			'ruby rails ror rb    {JS_PATH}scripts/shBrushRuby.js',
+			'scala          {JS_PATH}scripts/shBrushScala.js',
+			'sql          {JS_PATH}scripts/shBrushSql.js',
+			'vb vbnet       {JS_PATH}scripts/shBrushVb.js',
+			'ps powershell      {JS_PATH}scripts/shBrushPowerShell.js',
+			'xml xhtml xslt html  {JS_PATH}scripts/shBrushXml.js'
+	);
+	SyntaxHighlighter.all();
+</script>
 
 </body>
 </html>

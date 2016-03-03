@@ -31,7 +31,8 @@
                 </div-->
                 <!--滚动ad end -->
                 <div class="col-sm-12">
-
+                    <div class="panel panel-default" >
+                        <div class="panel-body box">
                     <!--推荐位滚动图片start-->
                     <!--col-sm-6 start-->
                     <div class="col-sm-6">
@@ -93,7 +94,7 @@
                     </div>
                     <!--col-sm-4 end -->
                     <!--热点新闻end-->
-
+                        </div></div>
                 </div>
 
                 <!--java知识start-->
@@ -111,12 +112,12 @@
                                                 ,c.catname as catname
                                                 ,c.catid as catid
                                             FROM
-                                                v9_news a,
-                                                v9_news_data b,
-                                                v9_category c
+                                                jinmazj_news a,
+                                                jinmazj_news_data b,
+                                                jinmazj_category c
                                              WHERE
                                                 a.id = b.id
-                                                AND a.catid = c.catid AND C.catid='7'
+                                                AND a.catid = c.catid AND c.catid='7'
                                                 ORDER BY updatetime DESC"   cache="3600" page="$_GET['page']" return="data" num="3"}
                             {php $categorys = getcache('category_content_'.$siteid,'commons');}
 
@@ -179,12 +180,12 @@
                             ,c.catname as catname
                             ,c.catid as catid
                             FROM
-                            v9_news a,
-                            v9_news_data b,
-                            v9_category c
+                            jinmazj_news a,
+                            jinmazj_news_data b,
+                            jinmazj_category c
                             WHERE
                             a.id = b.id
-                            AND a.catid = c.catid AND C.catid='8'
+                            AND a.catid = c.catid AND c.catid='8'
                             ORDER BY updatetime DESC"   cache="3600" page="$_GET['page']" return="data" num="3"}
                             {php $categorys = getcache('category_content_'.$siteid,'commons');}
 
@@ -248,12 +249,12 @@
                              ,c.catname as catname
                              ,c.catid as catid
                              FROM
-                             v9_news a,
-                             v9_news_data b,
-                             v9_category c
+                             jinmazj_news a,
+                             jinmazj_news_data b,
+                             jinmazj_category c
                              WHERE
                              a.id = b.id
-                             AND a.catid = c.catid AND C.catid='9'
+                             AND a.catid = c.catid AND c.catid='9'
                              ORDER BY updatetime DESC"   cache="3600" page="$_GET['page']" return="data" num="3"}
                              {php $categorys = getcache('category_content_'.$siteid,'commons');}
 
@@ -317,12 +318,12 @@
                              ,c.catname as catname
                              ,c.catid as catid
                              FROM
-                             v9_news a,
-                             v9_news_data b,
-                             v9_category c
+                             jinmazj_news a,
+                             jinmazj_news_data b,
+                             jinmazj_category c
                              WHERE
                              a.id = b.id
-                             AND a.catid = c.catid AND C.catid='21'
+                             AND a.catid = c.catid AND c.catid='21'
                              ORDER BY updatetime DESC"   cache="3600" page="$_GET['page']" return="data" num="3"}
                              {php $categorys = getcache('category_content_'.$siteid,'commons');}
 
@@ -492,3 +493,4 @@
     })
 </script>
 {template "content","footer"}
+<script id="cy_cmt_num" src="http://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysfkj6cn"></script>

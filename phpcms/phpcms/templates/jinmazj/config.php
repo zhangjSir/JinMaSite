@@ -2,7 +2,7 @@
   'name' => 'jinmazj',
   'author' => 'jinmazj',
   'dirname' => 'jinmazj',
-  'homepage' => 'http://www.phpcms.cn/',
+  'homepage' => 'http://www.jinmazj.net.cn/',
   'version' => '1.0',
   'disable' => 0,
   'file_explan' => 
